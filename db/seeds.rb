@@ -2,10 +2,13 @@ require 'json'
 require 'open-uri'
 require 'nokogiri'
 
+## SEED ITINERARIES FROM CAMP_TO_CAMP
 def api_call(itinerary, id)
   url = "https://api.camptocamp.org/#{itinerary}/#{id.to_s}"
   itinerary_hash = JSON.parse(open(url).read)
 end
+
+Itinerary.destroy_all
 
 sitemap0 = Nokogiri::HTML(open("https://www.camptocamp.org/sitemaps/r/0.xml"))
 sitemap1 = Nokogiri::HTML(open("https://www.camptocamp.org/sitemaps/r/1.xml"))
@@ -47,3 +50,13 @@ itinerary_ids[0..30].each do |id|
   itinerary.save
   sleep(2)
 end
+
+
+## SEED FAKE USERS
+
+User.destroy_all
+
+
+## SEED FAKE TRIPS
+
+Trip.destroy_all
