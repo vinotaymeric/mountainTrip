@@ -1,2 +1,97 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mountain BnB</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/style.css" class="style">
+  </head>
+  <body>
+    <div class="navbar-mountain navbar-fixed-top">
+      <a href="/" class="navbar-mountain-brand">
+      </a>
+      <div class="navbar-mountain-right hidden-xs hidden-sm">
+
+        <a href="" class="navbar-mountain-item navbar-mountain-link">
+          <i class="fas fa-plus-circle"></i>
+          Proposer une nouvelle sortie
+        </a>
+        <a href="" class="navbar-mountain-item navbar-mountain-link">Mes sorties</a>
+        <a href="" class="navbar-mountain-item navbar-mountain-link">Messages</a>
+
+        <!-- Profile picture with dropdown list -->
+        <div class="navbar-mountain-item">
+          <div class="dropdown">
+            <img src="https://avatars2.githubusercontent.com/u/45632740?s=460&v=4" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-mountain-item hidden-md hidden-lg">
+          <div class="dropdown">
+            <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
+              <li><a href="#">
+                    <i class="fas fa-plus-circle"></i>
+                    Proposer une nouvelle sortie
+                  </a>
+                </li>
+              <li><a href="#">Mes sorties</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');">
+      <div class="banner-content">
+        <h1>Mountain Trip</h1>
+        <p>You will never walk alone</p>
+      </div>
+    </div>
+    <div class="container">
+
+           <div class="col-xs-12 col-sm-6 col-md-4">
+             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1510777301555-11a7d2fa1f94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+             </div>
+           </div>
+           <div class="col-xs-12 col-sm-6 col-md-4">
+               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1452700903139-b085a5399ed2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+             </div>
+           </div>
+           <div class="col-xs-12 col-sm-6 col-md-4">
+               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+             </div>
+            </div>
+           <div class="col-xs-12 col-sm-6 col-md-4">
+               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1528794754316-b7a5633b311b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+             </div>
+           </div>
+           <div class="col-xs-12 col-sm-6 col-md-4">
+               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/19/nomad.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+             </div>
+           </div>
+
+    </div>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      </div>
+    </div>
+  </body>
+</html>
