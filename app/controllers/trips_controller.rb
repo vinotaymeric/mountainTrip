@@ -6,7 +6,7 @@ class TripsController < ApplicationController
     @trip = Trip.new
     @trip.itinerary = @itinerary
     # # Ligne dessous à modifier quand le login fonctionnera
-    # @trip.user = current_user
+    @trip.user = current_user
   end
 
   def create
