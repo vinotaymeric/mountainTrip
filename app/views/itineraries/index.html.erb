@@ -1,0 +1,7 @@
+<h2>Itinéraires</h2>
+
+<% @itineraries.each do |itinerary|  %>
+<ul>
+<li><%= link_to(itinerary.title, itinerary_path(itinerary)) %></li>
+</ul>
+<% end %>
