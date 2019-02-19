@@ -1,5 +1,13 @@
 class TripsController < ApplicationController
 
+  def index
+    @trips = Trip.all
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   def new
     @itinerary = Itinerary.find(params[:itinerary_id])
     @trip = Trip.new
@@ -11,7 +19,15 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.save
-    # TO DO :redirect somewhere
+    redirect_to trips_path
+  end
+
+  def edit
+    # TODO
+  end
+
+  def update
+    # TO DO
   end
 
   private
