@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_102110) do
+ActiveRecord::Schema.define(version: 2019_02_19_160530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,13 @@ ActiveRecord::Schema.define(version: 2019_02_19_102110) do
     t.string "picture_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
+    t.float "coord_long"
+    t.float "coord_lat"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.boolean "accepted"
     t.bigint "user_id"
     t.bigint "trip_id"
     t.datetime "created_at", null: false

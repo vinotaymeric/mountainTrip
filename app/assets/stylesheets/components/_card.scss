@@ -84,6 +84,7 @@
   opacity: 0.1;
 }
 
+
 .card-element-invisible {
   opacity: 0;
   transition-duration: 1.5s;
@@ -92,4 +93,10 @@
 
 .card-element-up {
   height: 50%;
+}
+
+.card-button {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 }

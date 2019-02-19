@@ -1,0 +1,37 @@
+<h2>Et ça papote, et ça papote</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <% @messages.each do |message| %>
+        <div class="message">
+          <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+          <div class="message-name">
+            <h3><%= message.user.user_name %></h3>
+            <p><%= message.created_at.to_s.first(9) %></p>
+          </div>
+          <div class="message-body">
+            <p><strong><%= message.content %></strong></p>
+            <p>
+              Activité principale: <%= @trip.itinerary.activities.gsub("[", "").gsub("]", "").gsub("\"", "").split(",").first %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+
+      <h4>Répondre au dernier message</h4>
+
+      <%= simple_form_for [@trip, @message] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit "Répondre", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- do later if you can: accept request -->
+
+

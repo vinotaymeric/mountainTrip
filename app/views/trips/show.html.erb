@@ -1,10 +1,37 @@
-<h2>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %></h2>
-<%= link_to('Participer', new_trip_message_path(@trip)) %>
+<% itinerary = @trip.itinerary %>
+<% activities = itinerary.activities.gsub("[", "").gsub("]", "").gsub("\"", "").split(",") %>
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= itinerary.picture_url %>');">
+  <div class="card-category">
+    <%= activities.join(" ,") %>
+  </div>
+  <div class="card-description">
+    <h2><%= @trip.title %></h2>
+    <p>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %> créée par <%= @trip.user.user_name %></p>
+  </div>
+  <div>
+    <%= link_to("(i) #{@trip.messages.count} messages", trip_messages_path(@trip), class: "btn btn-primary card-button") %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h4>Description</h4>
+      <p style="text-align: center;">
+        <%= itinerary.content %>
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h4>Météo</h4>
+        <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/b%c3%a2le_suisse_2661604?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&spot=1&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 216px;height: 366px"></iframe>
+    </div>
+    <div class="col-xs-12">
+      <h4>3D Map</h4>
+        <iframe src="https://fatmap.com/@46.0768888,7.2824969,24320.4784125,-35.9049826,92.6848191,2388.9221056,normal" frameborder="" allowfullscreen="" width="100%" height="600"></iframe>
+    </div>
+  </div>
+</div>
 
 
-<h4>Other participant messages</h4>
-<ul>
-<% @trip.messages.each do |message| %>
-  <li><%= message.content %> - <%= message.user.user_name %></li>
-<% end %>
-</ul>
+
