@@ -1,14 +1,3 @@
-
-
-
-<% if current_user  %>
-    <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
-    <% #@trip.user.user_name %>
-<%else%>
-    <%= link_to "S'inscrire", new_user_registration_path %>
-    <%= link_to "Se connecter", new_user_session_path %>
-<% end %>
-
 <h2>Itinéraires</h2>
 <% @itineraries.each do |itinerary|  %>
 <ul>

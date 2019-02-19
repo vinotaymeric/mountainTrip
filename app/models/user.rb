@@ -3,4 +3,9 @@ class User < ApplicationRecord
   has_many :user_trips
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  def user_name
+    user_name    
+  end
+  
 end
