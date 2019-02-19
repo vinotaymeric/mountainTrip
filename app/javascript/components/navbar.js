@@ -8,10 +8,13 @@ const InitUpdateNavbar = () => {
   document.addEventListener('scroll', (e) => {
 
     const intViewportHeight = window.innerHeight;
-    if ((document.body.getBoundingClientRect()).top > scrollPos){
-      navbar.classList.remove("navbar-invisible") }
-     else if (window.scrollY < intViewportHeight/2.5) {
-      navbar.classList.remove("navbar-invisible")
+    if (window.scrollY < intViewportHeight/3) {
+      navbar.classList.remove("navbar-invisible");
+      navbar.classList.remove("navbar-green");
+    }
+     else if ((document.body.getBoundingClientRect()).top > scrollPos){
+      navbar.classList.remove("navbar-invisible");
+      navbar.classList.add("navbar-green")
     } else  {
       navbar.classList.add("navbar-invisible")
     }
