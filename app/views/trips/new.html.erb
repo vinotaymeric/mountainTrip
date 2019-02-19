@@ -1,6 +1,7 @@
 <h2>Nouvelle sortie</h2>
 
 <%= simple_form_for [@itinerary, @trip] do |f| %>
+  <%= f.input :title %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit "Créer", class: "btn btn-primary" %>

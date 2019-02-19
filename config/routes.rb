@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :itineraries, only: [:index, :show] do
     resources :trips, only: [:new, :create]
   end
-  resources :trips, only: [:new, :create, :show, :index, :edit, :update]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+  resources :trips, only: [:show, :index, :edit, :update] do
+    resources :messages, only: [:index, :new, :create]
+  end
 end

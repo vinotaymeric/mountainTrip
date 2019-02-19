@@ -10,16 +10,17 @@ class TripsController < ApplicationController
   end
 
   def new
-    @itinerary = Itinerary.find(params[:itinerary_id])
     @trip = Trip.new
-    @trip.itinerary = @itinerary
-    # # Ligne dessous à modifier quand le login fonctionnera
-    @trip.user = current_user
+    @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.save
+    @trip.itinerary = Itinerary.find(params[:itinerary_id])
+    # # Lignes dessous à modifier quand le login fonctionnera
+    # @trip.user = current_user
+    @trip.user = User.find(4)
+    @trip.save!
     redirect_to trips_path
   end
 
@@ -34,6 +35,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date)
+    params.require(:trip).permit(:start_date, :end_date, :title)
   end
 end
