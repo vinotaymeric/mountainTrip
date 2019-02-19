@@ -56,6 +56,7 @@ itinerary_ids[0..30].each do |id|
   itinerary_hash["locales"].each do |locale|
     if locale["lang"] == "fr" && locale["title"] != nil
       itinerary.title = "#{locale["title_prefix"]} #{locale["title"]}"
+      itinerary.content = locale["description"]
     elsif locale["lang"] == "fr" && locale["title"].nil?
       itinerary.title = locale["title"]
     end
