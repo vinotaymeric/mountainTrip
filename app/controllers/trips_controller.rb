@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
- 
+
 
   def index
     @trips = Trip.all
@@ -11,11 +11,15 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @trip.itinerary = @itinerary
+    @trip.user = current_user
     @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.user = current_user
+    @trip.save
     @trip.itinerary = Itinerary.find(params[:itinerary_id])
     # # Lignes dessous à modifier quand le login fonctionnera
     # @trip.user = current_user
