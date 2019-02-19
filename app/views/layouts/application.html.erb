@@ -10,7 +10,56 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+
     <%= yield %>
+    <div class="navbar-mountain navbar-invisible navbar-fixed-top">
+      <a href="/" class="navbar-mountain-brand">
+      </a>
+      <div class="navbar-mountain-right hidden-xs hidden-sm">
+
+        <a href="" class="navbar-mountain-item navbar-content navbar-mountain-link">
+          <i class="fas fa-plus-circle"></i>
+          Proposer une nouvelle sortie
+        </a>
+        <a href="" class="navbar-mountain-item navbar-mountain-link">Mes sorties</a>
+        <a href="" class="navbar-mountain-item navbar-mountain-link">Messages</a>
+
+        <!-- Profile picture with dropdown list -->
+        <div class="navbar-mountain-item">
+          <div class="dropdown">
+            <img src="https://avatars2.githubusercontent.com/u/45632740?s=460&v=4" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-mountain-item hidden-md hidden-lg">
+          <div class="dropdown">
+            <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
+              <li><a href="#">
+                    <i class="fas fa-plus-circle"></i>
+                    Proposer une nouvelle sortie
+                  </a>
+                </li>
+              <li><a href="#">Mes sorties</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
