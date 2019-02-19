@@ -10,9 +10,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-
-    <%= yield %>
-    <div class="navbar-mountain navbar-invisible navbar-fixed-top">
+    <div class="navbar-mountain navbar-fixed-top">
       <a href="/" class="navbar-mountain-brand">
       </a>
       <div class="navbar-mountain-right hidden-xs hidden-sm">
@@ -51,6 +49,8 @@
           </div>
         </div>
     </div>
+
+    <%= yield %>
     <div class="footer">
       <div class="footer-links">
         <a href="#"><i class="fab fa-github"></i></a>
