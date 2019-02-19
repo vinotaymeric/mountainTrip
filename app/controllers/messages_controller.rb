@@ -1,4 +1,9 @@
 class MessagesController < ApplicationController
+  def index
+    @trip = Trip.find(params[:trip_id])
+    @messages = Message.where(trip_id: @trip.id)
+    @message = Message.new
+  end
 
   def new
     @message = Message.new
@@ -8,11 +13,13 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.trip = Trip.find(params[:trip_id])
-    # # Lignes dessous à modifier quand le login fonctionnera
-    # @trip.user = current_user
-    @message.user = User.find(4)
+    @message.user = current_user
     @message.save!
     redirect_to trips_path
+  end
+
+  def update
+    Message.update(message_params)
   end
 
   private
@@ -21,4 +28,3 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 end
-

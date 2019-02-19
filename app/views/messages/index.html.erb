@@ -1,0 +1,16 @@
+<h2>Messagerie de la sortie</h2>
+
+<% @messages.each do |message| %>
+  <p><%= message.user.email %> said: <%= message.content %></p>
+<% end %>
+
+<h4>Répondre au dernier message</h4>
+
+<%= simple_form_for [@trip, @message] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Répondre", class: "btn btn-primary" %>
+<% end %>
+
+<!-- do later if you can -->
+
+
