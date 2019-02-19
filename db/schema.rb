@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_160530) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"
+    t.float "coord_long"
+    t.float "coord_lat"
   end
 
   create_table "messages", force: :cascade do |t|

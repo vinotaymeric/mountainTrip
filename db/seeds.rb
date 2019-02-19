@@ -11,6 +11,12 @@ def api_call(itinerary, id)
   JSON.parse(open(url).read)
 end
 
+def convert_epsg_3857_to_4326(web_mercator_x, web_mercator_y)
+  url = "https://epsg.io/trans?x=#{web_mercator_x}&y=#{web_mercator_y}&s_srs=3857&t_srs=4326"
+  response = JSON.parse(open(url).read)
+  { long: response["x"], lat: response["y"] }
+end
+
 Itinerary.destroy_all
 
 sitemap0 = Nokogiri::HTML(open("https://www.camptocamp.org/sitemaps/r/0.xml"))
@@ -37,6 +43,11 @@ itinerary_ids[0..30].each do |id|
   itinerary.equipment_rating = itinerary_hash["equipment_rating"]
   itinerary.activities = itinerary_hash["activities"]
   itinerary.orientations = itinerary_hash["orientations"]
+
+  #Add gps coords
+  gps_coords = convert_epsg_3857_to_4326(itinerary.coord_x, itinerary.coord_y)
+  itinerary.coord_long = gps_coords[:long]
+  itinerary.coord_lat = gps_coords[:lat]
 
   if itinerary_hash["associations"]["images"][0] != nil
     itinerary.picture_url = "https://media.camptocamp.org/c2corg-active/#{itinerary_hash["associations"]["images"][0]["filename"]}"
