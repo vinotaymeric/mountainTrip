@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     @message.trip = Trip.find(params[:trip_id])
     @message.user = current_user
     @message.save!
-    redirect_to trips_path
+    redirect_to trip_messages_path
   end
 
   def update

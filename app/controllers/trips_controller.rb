@@ -1,5 +1,8 @@
-class TripsController < ApplicationController
+require 'nokogiri'
+require 'open-uri'
 
+
+class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
@@ -21,19 +24,9 @@ class TripsController < ApplicationController
     @trip.user = current_user
     @trip.save
     @trip.itinerary = Itinerary.find(params[:itinerary_id])
-    # # Lignes dessous à modifier quand le login fonctionnera
-    # @trip.user = current_user
-    @trip.user = User.find(4)
+    @trip.user = current_user
     @trip.save!
     redirect_to trips_path
-  end
-
-  def edit
-    # TODO
-  end
-
-  def update
-    # TO DO
   end
 
   def validate_user_for_trip
@@ -42,15 +35,19 @@ class TripsController < ApplicationController
     @trip.save
   end
 
+  def get_weather_for_trip
+    itinerary = Trip.find(params[:id]).itinerary
+    url = 'https://api.github.com/users/ssaunier'
+
+  end
+
   private
 
   def trip_params
     params.require(:trip).permit(:start_date, :end_date, :title)
   end
-  
 
   def sign_up_params
     params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
   end
-
 end

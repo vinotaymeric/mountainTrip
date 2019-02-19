@@ -5,5 +5,5 @@ class Trip < ApplicationRecord
   has_many :messages
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :title, presence: true
+  # validates :title, presence: true
 end
