@@ -1,0 +1,6 @@
+<h2>Demande de participation</h2>
+
+<%= simple_form_for [@trip, @message] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Créer", class: "btn btn-primary" %>
+<% end %>
