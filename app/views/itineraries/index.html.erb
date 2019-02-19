@@ -1,7 +1,17 @@
 <h2>Itinéraires</h2>
 
-<% @itineraries.each do |itinerary|  %>
-<ul>
-<li><%= link_to(itinerary.title, itinerary_path(itinerary)) %></li>
-</ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @itineraries.each do |itinerary|  %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
+        <div class="card-category">Popular</div>
+        <div class="card-description">
+          <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+        </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
