@@ -5,6 +5,9 @@
 <h4>Other participant messages</h4>
 <ul>
 <% @trip.messages.each do |message| %>
-  <li><%= message.content %> - <%= message.user.user_name %></li>
+  <li><%= message.content %> - <%= message.user.email %></li>
 <% end %>
 </ul>
+
+<%= link_to('Voir mes messages', trip_messages_path(@trip)) %>
+

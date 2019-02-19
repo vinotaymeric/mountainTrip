@@ -36,6 +36,12 @@ class TripsController < ApplicationController
     # TO DO
   end
 
+  def validate_user_for_trip
+    @trip = Trip.find(params[:id])
+    @trip.user_trip = UserTrip.create(user: current_user, trip: @trip, accepted: true)
+    @trip.save
+  end
+
   private
 
   def trip_params
