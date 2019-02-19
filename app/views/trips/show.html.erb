@@ -1,2 +1,13 @@
 <h2>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %></h2>
-<%= link_to('Participer', edit_trip_path(@trip)) %>
+<%= link_to('Participer', new_trip_message_path(@trip)) %>
+
+
+<h4>Other participant messages</h4>
+<ul>
+<% @trip.messages.each do |message| %>
+  <li><%= message.content %> - <%= message.user.email %></li>
+<% end %>
+</ul>
+
+<%= link_to('Voir mes messages', trip_messages_path(@trip)) %>
+
