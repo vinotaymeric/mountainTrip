@@ -41,4 +41,10 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:start_date, :end_date, :title)
   end
+  
+
+  def sign_up_params
+    params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
+  end
+
 end
