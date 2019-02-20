@@ -10,7 +10,33 @@
     <p>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %> créée par <%= @trip.user.user_name %></p>
   </div>
   <div>
-    <%= link_to('Je veux participer', trip_user_trips_path(@trip), method: :post, class: "btn btn-primary card-button") %>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary card-button" data-toggle="modal" data-target="#myModal">
+      Je veux participer
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="myModalLabel" style="color:black;">Votre message</h4>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [@trip, @message] do |f| %>
+              <%= f.input :content, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            <%= link_to('Envoyer', trip_user_trips_path(@trip), method: :post, class: "btn btn-primary visible-btn") %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 

@@ -10,7 +10,8 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @user_trip =UserTrip.new
+    @user_trip = UserTrip.new
+    @message = Message.new
   end
 
   def new
