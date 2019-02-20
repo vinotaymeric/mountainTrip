@@ -3,9 +3,13 @@ class UserTripsController < ApplicationController
   def create
     @request = UserTrip.new
     @request.user = current_user
-    @request.trip = Trip.find(params[:trip_id])
+    @trip = Trip.find(params[:trip_id])
+    @request.trip = @trip
     @request.state = "requested"
-    @request.save!
+    if @request.save!
+      redirect_to trip_messages_path(@trip)
+      flash[:notice] = "Demande envoyée. Montrez que vous êtes sympa, vos seins, etc."
+    end
   end
 
   private

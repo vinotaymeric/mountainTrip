@@ -10,7 +10,7 @@
     <p>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %> créée par <%= @trip.user.user_name %></p>
   </div>
   <div>
-    <%= link_to("(i) #{@trip.messages.count} messages", trip_messages_path(@trip), class: "btn btn-primary card-button") %>
+    <%= link_to('Je veux participer', trip_user_trips_path(@trip), method: :post, class: "btn btn-primary card-button") %>
   </div>
 </div>
 
@@ -33,6 +33,6 @@
   </div>
 </div>
 
-<%= link_to('Request', trip_user_trips_path(@trip), method: :post) %>
+
 
 
