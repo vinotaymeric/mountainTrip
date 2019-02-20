@@ -15,78 +15,26 @@
       </div>
     </div>
     <div class="container">
-      <h3>Nos meilleures sorties</h3>
-           <div class="col-xs-12 col-sm-6 col-md-4">
-             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
-              <div class="card-category card-element-invisible">Popular</div>
-              <div class="card-description">
-                <div class="card-infos">
-                <h2>Petite balade</h2>
-                <p class="card-comment card-element-invisible">J'aime beaucoup marcher</p>
-                </div>
-              </div>
-              <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            </div>
-          </div>
-
-           <div class="col-xs-12 col-sm-6 col-md-4">
-             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1510777301555-11a7d2fa1f94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
-              <div class="card-category card-element-invisible">Popular</div>
-              <div class="card-description">
-                <div class="card-infos">
-                <h2>Petite marche</h2>
-                <p class="card-comment card-element-invisible">Quel kiff!</p>
-                </div>
-              </div>
-              <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            </div>
-          </div>
-
+      <h3>Les sorties du weekend:</h3>
+      <div class="row">
+        <% @trips.each do |trip| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1510777301555-11a7d2fa1f94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
-              <div class="card-category card-element-invisible">Popular</div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= trip.itinerary.picture_url %>');">
+              <%= link_to " ", itinerary_path(trip.itinerary), class: "card-link" %>
+              <div class="card-category card-element-invisible"><%= trip.start_date %></div>
               <div class="card-description">
                 <div class="card-infos">
-                <h2>Rando Sympa</h2>
-                <p class="card-comment card-element-invisible">Oh lala!</p>
+                  <h2><%= link_to(trip.title, itinerary_path(trip.itinerary)) %></h2>
+                  <p class="card-comment card-element-invisible"><%= trip.itinerary.content %></p>
                 </div>
               </div>
-              <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-             </div>
-           </div>
-           <div class="col-xs-12 col-sm-6 col-md-4">
-               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1452700903139-b085a5399ed2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
-                <div class="card-category card-element-invisible">Popular</div>
-              <div class="card-description">
-                <div class="card-infos">
-                <h2>j'aime la montagne</h2>
-                </div>
-              </div>
-              <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-             </div>
-           </div>
-           <div class="col-xs-12 col-sm-6 col-md-4">
-               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
-                <div class="card-category card-element-invisible">Popular</div>
-              <div class="card-description">
-                <div class="card-infos">
-                <h2>hello</h2>
-                </div>
-              </div>
-              <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-             </div>
+              <img class="card-user-avatar card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+              <%= link_to " ", trip_messages_path(trip), class: "fas fa-envelope card-icon card-element-invisible" %>
             </div>
-           <div class="col-xs-12 col-sm-6 col-md-4">
-               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1528794754316-b7a5633b311b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
-                <div class="card-category card-element-invisible">Popular</div>
-              <div class="card-description">
-                <div class="card-infos">
-                <h2>Petite balade</h2>
-                </div>
-              </div>
-              <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-             </div>
-           </div>
+
+          </div>
+        <% end %>
+      </div>
     </div>
   </body>
 </html>
