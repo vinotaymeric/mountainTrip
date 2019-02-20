@@ -22,5 +22,11 @@ const InitUpdateNavbar = () => {
   })
 }
 
-export default InitUpdateNavbar;
+const fixNavbar = () => {
+  const navbar = document.querySelector('.navbar-mountain')
+  navbar.classList.add("fixed-navbar")
+  navbar.insertAdjacentHTML('afterend', '<div style="height: 72px;"><div>')
+}
+
+export { InitUpdateNavbar, fixNavbar};
 
