@@ -8,13 +8,16 @@
       <!-- Links when logged in -->
             <%= link_to ("<i class='fas fa-plus-circle'></i>
             Proposer une nouvelle sortie").html_safe, "", class: "navbar-mountain-item navbar-mountain-link" %>
-            <%= link_to "Mes Sorties", "#", class: "navbar-mountain-item navbar-mountain-link" %>
+            <!--<%= link_to "Mes Sorties", "#", class: "navbar-mountain-item navbar-mountain-link" %>-->
+            <!--liens actifs pour mes sorties et proposer sortie à intégerer au design de la nav bar-->
+            <%=  link_to "Mes sorties", trips_path,class: "navbar-mountain-item navbar-mountain-link" %> 
+            <%=  link_to "Proposer une sortie", itineraries_path,class: "navbar-mountain-item navbar-mountain-link" %> 
             <div class="navbar-mountain-item">
               <div class="dropdown">
                 <img src="https://avatars2.githubusercontent.com/u/45632740?s=460&v=4" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
                 <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
                   <li><a href="#">Profil</a></li>
-                  <li><a href="#">Se déconnecter</a></li>
+                  <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></li>
                 </ul>
               </div>
             </div>
@@ -27,11 +30,12 @@
         <!-- Profile picture with dropdown list -->
 
       </div>
-      <div class="navbar-mountain-item hidden-md hidden-lg">
+      
+      <!--<div class="navbar-mountain-item hidden-md hidden-lg">
           <div class="dropdown">
             <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
             <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
-              <li><a href="#">
+              <li><a href="">
                     <i class="fas fa-plus-circle"></i>
                     Proposer une nouvelle sortie
                   </a>
@@ -40,6 +44,6 @@
               <li><a href="#">Messages</a></li>
             </ul>
           </div>
-        </div>
+        </div>-->
     </div>
 
