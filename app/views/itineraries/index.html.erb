@@ -1,8 +1,16 @@
 <h2>Itinéraires</h2>
-<div class="container">
-  <div class="container">
-    <div class="row">
-      <% @itineraries.each do |itinerary|  %>
+<ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active" id="tab-list">Liste</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined" id="tab-map">Carte</a>
+  </li>
+</ul>
+
+<div class="container" id="content-list">
+  <div class="row">
+    <% @itineraries.each do |itinerary|  %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
           <div class="card-category card-element-invisible">Popular</div>
@@ -14,14 +22,12 @@
           <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
 
-
-  <div class="container">
-    <%= render partial: "mapbox" %>
+<div class="container" id="content-map" hidden>
+  <%= render partial: "mapbox" %>
 </div>
 
 <%= link_to 'Accueil', root_path, class: "btn btn-primary" %>
-</div>

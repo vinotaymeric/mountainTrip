@@ -23,7 +23,9 @@
                                                 required: true,
                                                 input_html: { autocomplete: "new-password" } %>
                                     <%= f.input :user_name %>
-                                    </div>
+                                    
+                                    <%= f.input :picture %>
+                                    <%= f.input :picture_cache, as: :hidden %>
                                     <div>
 
                                     <div class="form-actions" >
@@ -39,5 +41,4 @@
                   <%= render "users/shared/links" %>
             </div>
       </div>
-
   </div>
