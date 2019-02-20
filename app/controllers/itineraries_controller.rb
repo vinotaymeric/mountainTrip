@@ -3,9 +3,13 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = Itinerary.all
-    p @itineraries
-    @markers = @itineraries.map { |itinerary| { lng: itinerary[:coord_long], lat: itinerary[:coord_lat] } }
-    p @markers
+    @markers = @itineraries.map do |itinerary|
+      {
+        lng: itinerary[:coord_long],
+        lat: itinerary[:coord_lat],
+        infoWindow: render_to_string(partial: "infowindow", locals: { itinerary: itinerary })
+      }
+    end
   end
 
   def show

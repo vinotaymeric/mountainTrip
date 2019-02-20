@@ -1,9 +1,6 @@
-<% itinerary = @trip.itinerary %>
-<% activities = itinerary.activities.gsub("[", "").gsub("]", "").gsub("\"", "").split(",") %>
-
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= itinerary.picture_url %>');">
   <div class="card-category">
-    <%= activities.join(" ,") %>
+    <%= @trip.itinerary.activities.join(" ,") %>
   </div>
   <div class="card-description">
     <h2><%= @trip.title %></h2>
