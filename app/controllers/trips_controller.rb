@@ -30,17 +30,15 @@ class TripsController < ApplicationController
     redirect_to trips_path
   end
 
-  def validate_user_for_trip
-    @trip = Trip.find(params[:id])
-    @trip.user_trip = UserTrip.create(user: current_user, trip: @trip, accepted: true)
-    @trip.save
+  def my_trips
+    @my_trips = Trip.where(user_id: current_user.id)
   end
 
-  def get_weather_for_trip
-    itinerary = Trip.find(params[:id]).itinerary
-    url = 'https://api.github.com/users/ssaunier'
-
-  end
+  # def validate_user_for_trip
+  #   @trip = Trip.find(params[:id])
+  #   @trip.user_trip = UserTrip.create(user: current_user, trip: @trip, accepted: true)
+  #   @trip.save
+  # end
 
   private
 

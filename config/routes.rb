@@ -10,7 +10,15 @@ Rails.application.routes.draw do
 
   resources :trips, only: [:show, :index, :edit, :update] do
     resources :messages, only: [:index, :new, :create, :update, :edit]
-    post "user_trips", to: "user_trips#create"
+    resources :user_trips, only: [:create]
   end
+
+  resources :user_trips, only: [] do
+    member do
+      patch :accept
+    end
+  end
+
+  get "my_trips", to: "trips#my_trips"
 
 end
