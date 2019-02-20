@@ -55,9 +55,14 @@
   top: -20px;
   left: 5px;
   font-size: 18px;
-  color: black;
   transition-duration: 1.5s;
   transition-timing-function: ease;
+  a {
+    color:rgba(0, 0, 0, 1);;
+    font-size: 18px;
+    text-decoration: none;
+    opacity: 0.8;
+  }
 }
 .card-description p {
   position: absolute;
@@ -68,6 +73,11 @@
   font-weight: lighter;
   transition-duration: 1.5s;
   transition-timing-function: ease;
+  a {
+    color:rgba(0, 0, 0, 1);
+    font-size: 12px;
+    text-decoration: none;
+  }
 
 }
 .card-link {
