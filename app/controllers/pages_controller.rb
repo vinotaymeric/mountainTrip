@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  def home 
+  def home
+    @trips = Trip.last(6)
   end
 
   def profil

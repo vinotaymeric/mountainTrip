@@ -1,5 +1,4 @@
 <h2>Itinéraires</h2>
-
 <ul class="list-inline tabs-underlined">
   <li>
     <a href="#" class="tab-underlined active" id="tab-list">Liste</a>
@@ -12,13 +11,15 @@
 <div class="container" id="content-list">
   <div class="row">
     <% @itineraries.each do |itinerary|  %>
-    <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
-          <div class="card-category">Popular</div>
+          <div class="card-category card-element-invisible">Popular</div>
           <div class="card-description">
-            <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+            <div class="card-infos">
+              <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+            </div>
           </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         </div>
       </div>
     <% end %>
@@ -29,4 +30,4 @@
   <%= render partial: "mapbox" %>
 </div>
 
-<%= link_to 'Edit Profile', edit_user_registration_path %>
+<%= link_to 'Accueil', root_path, class: "btn btn-primary" %>
