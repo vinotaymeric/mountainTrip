@@ -11,7 +11,6 @@ const initTabs = (initMapbox) => {
 
  tabList.addEventListener('click', function(event) {
   if (contentList.hidden == true) {
-    console.log("coucou")
     tabList.classList.toggle("active");
     tabMap.classList.toggle("active");
     contentList.hidden = false;
