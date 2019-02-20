@@ -85,6 +85,10 @@ puts "User seeding completed"
 ## SEED FAKE TRIPS
 puts "Seeding trips..."
 
+# First we need to destroy messages
+
+Message.destroy_all
+
 Trip.destroy_all
 
 User.all.each do |cur_user|
