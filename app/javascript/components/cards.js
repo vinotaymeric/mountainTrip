@@ -10,20 +10,21 @@ const CardsHover = () => {
     const cardCategory = card.querySelector('.card-category')
     const cardText = card.querySelector('.card-comment')
 
+
     card.onmouseover = (e) => {
-      cardUserAvatar.classList.remove("card-element-invisible");
-      cardCategory.classList.remove("card-element-invisible");
-      cardDescription.classList.add("card-element-up");
-      cardText.classList.remove("card-element-invisible");
-      cardIcon.classList.remove("card-element-invisible");
+      if (cardUserAvatar!=null) {cardUserAvatar.classList.remove("card-element-invisible")};
+      if (cardCategory!=null) {cardCategory.classList.remove("card-element-invisible")};
+      if (cardDescription!=null) {cardDescription.classList.add("card-element-up")};
+      if (cardText!=null) {cardText.classList.remove("card-element-invisible")};
+      if (cardIcon!=null) {cardIcon.classList.remove("card-element-invisible")};
     }
 
     card.onmouseout= (e) => {
-      cardUserAvatar.classList.add("card-element-invisible");
-      cardCategory.classList.add("card-element-invisible");
-      cardDescription.classList.remove("card-element-up");
-      cardText.classList.add("card-element-invisible");
-      cardIcon.classList.add("card-element-invisible");
+      if (cardUserAvatar!=null) {cardUserAvatar.classList.add("card-element-invisible")};
+      if (cardCategory!=null) {cardCategory.classList.add("card-element-invisible")};
+      if (cardDescription!=null) {cardDescription.classList.remove("card-element-up")};
+      if (cardText!=null) {cardText.classList.add("card-element-invisible")};
+      if (cardIcon!=null) {cardIcon.classList.add("card-element-invisible")};
     }
   });
 
