@@ -13,9 +13,6 @@
           </div>
           <div class="message-body">
             <p><strong><%= message.content %></strong></p>
-            <p>
-              Activité principale: <%= @trip.itinerary.activities.gsub("[", "").gsub("]", "").gsub("\"", "").split(",").first %>
-            </p>
           </div>
         </div>
       <% end %>

@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_02_20_144400) do
     t.text "content"
     t.float "coord_long"
     t.float "coord_lat"
-    t.text "content"
     t.string "activities", default: [], array: true
   end
 
