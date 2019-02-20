@@ -1,0 +1,31 @@
+<h2>Sorties que j'ai créées</h2>
+
+<div class="container">
+
+  <% @my_trips.each do |trip| %>
+    <h4><%= trip.title %></h4>
+    <% trip.user_trips.each do |request| %>
+      <div class="message">
+        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+        <div class="message-name">
+          <h3><%= request.user.user_name %></h3>
+          <p><%= request.created_at.to_s.first(9) %></p>
+        </div>
+        <div class="message-body">
+          <p><strong>Son dernier message en dur</strong></p>
+        </div>
+        <div>
+          <% if request.state == "demandé"  %>
+            <%= link_to('Valider', accept_user_trip_path(request), method: :patch, class: "btn btn-success visible-btn") %>
+            <%= link_to('Refuser, il est moche', decline_user_trip_path(request), method: :patch, class: "btn btn-danger visible-btn") %>
+          <% elsif request.state == "refusé" %>
+            <span>Refusé</span>
+          <% else %>
+            <span>Déjà validé!</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

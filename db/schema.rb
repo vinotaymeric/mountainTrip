@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_144400) do
     t.string "picture_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
     t.float "coord_long"
     t.float "coord_lat"
     t.text "content"
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_144400) do
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state"
     t.index ["trip_id"], name: "index_user_trips_on_trip_id"
     t.index ["user_id"], name: "index_user_trips_on_user_id"
   end

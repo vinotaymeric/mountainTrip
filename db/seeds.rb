@@ -59,6 +59,9 @@ init.each do |id|
 
   if itinerary_hash["associations"]["images"][0] != nil
     itinerary.picture_url = "https://media.camptocamp.org/c2corg-active/#{itinerary_hash["associations"]["images"][0]["filename"]}"
+  else
+    itinerary.picture_url = "http://woodspringtrust.org/wp-content/uploads/2013/04/placeholder.jpg"
+    # itinerary.picture_url = "https://source.unsplash.com/collection/357786/600x300"
   end
 
   itinerary_hash["locales"].each do |locale|
