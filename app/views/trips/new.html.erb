@@ -18,7 +18,8 @@
                   <div class="form-group row mb-0">
                     <div class="col-sm-9 offset-sm-3">
                       <%= f.button :submit, class: "btn-primary" %>
-                     <%= link_to "Cancel", :back, {:class=>"btn btn-success"} %>
+                      <%= f.button :button, 'Cancel', type: :back, class: 'btn btn-none' %>
+                      <%= f.button :button, 'Reset', type: :reset, class: 'btn btn-none' %>
                       <%= link_to "cancel2", itineraries_path, class: "btn btn-danger" %>
                     </div>
                   </div>
