@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_133122) do
+ActiveRecord::Schema.define(version: 2019_02_20_144400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_02_20_133122) do
     t.integer "height_diff_up"
     t.string "engagement_rating"
     t.string "equipment_rating"
-    t.string "activities"
     t.string "orientations"
     t.integer "number_of_outings"
     t.string "title"
@@ -33,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_02_20_133122) do
     t.text "content"
     t.float "coord_long"
     t.float "coord_lat"
+    t.text "content"
+    t.string "activities", default: [], array: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_133122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
+    t.string "picture"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

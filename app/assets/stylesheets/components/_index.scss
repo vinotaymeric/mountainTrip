@@ -7,8 +7,15 @@
 @import "footer";
 @import "message";
 @import "avatar";
+@import "map";
+@import "tabs";
 
 body {
   background-color: #F0FBEF;
+  display:table;
+  height: 100%;
+    width: 100%;
+    margin: 0;
+
 }
 

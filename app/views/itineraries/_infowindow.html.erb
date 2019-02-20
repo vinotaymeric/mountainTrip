@@ -1,0 +1,5 @@
+<h3><%= itinerary.title %></h3>
+<h4>
+  <%= itinerary.activities.join(", ") %>
+</h4>
+<%= link_to "Plus d'infos...", itinerary_path(itinerary) %>
