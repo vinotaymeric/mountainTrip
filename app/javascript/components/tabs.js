@@ -1,6 +1,7 @@
-const initTabs = () => {
+const initTabs = (initMapbox) => {
   const tabList = document.querySelector('#tab-list');
   const tabMap = document.querySelector('#tab-map');
+  let callInitMap = true;
   if ((tabList == null) || (tabMap == null)) {
     return ;
   }
@@ -19,11 +20,17 @@ const initTabs = () => {
  });
 
  tabMap.addEventListener('click', function(event) {
+
   if (contentList.hidden == false) {
     tabList.classList.toggle("active");
     tabMap.classList.toggle("active");
     contentList.hidden = true;
     contentMap.hidden = false;
+
+    if(callInitMap) {
+      initMapbox();
+      callInitMap = false;
+    }
   }
  });
 }

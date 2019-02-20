@@ -7,8 +7,7 @@ import initMapbox from '../plugins/init_mapbox';
 // import InitTyped from '../components/init_typed';
 
 InitUpdateNavbar();
-initTabs();
+initTabs(initMapbox);
 CardsHover();
 // InitTyped();
 
-initMapbox();
