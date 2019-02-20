@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_02_20_144400) do
     t.integer "height_diff_up"
     t.string "engagement_rating"
     t.string "equipment_rating"
-    t.string "activities"
     t.string "orientations"
     t.integer "number_of_outings"
     t.string "title"
@@ -33,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_144400) do
     t.float "coord_long"
     t.float "coord_lat"
     t.text "content"
+    t.string "activities", default: [], array: true
   end
 
   create_table "messages", force: :cascade do |t|
