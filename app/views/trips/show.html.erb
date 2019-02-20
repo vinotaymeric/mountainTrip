@@ -24,7 +24,7 @@
     </div>
     <div class="col-xs-12 col-md-6">
       <h4>Météo</h4>
-        <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/b%c3%a2le_suisse_2661604?geoloc=fixed&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&spot=1&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 216px;height: 366px"></iframe>
+        <img src=<%= "http://my.meteoblue.com/visimage/meteogram_web?apikey=41f2dd49fb6a&lat=#{itinerary.coord_lat}&lon=#{itinerary.coord_long}&asl=#{itinerary.elevation_max}" %> alt="Météo">
     </div>
     <div class="col-xs-12">
       <h4>3D Map</h4>
@@ -32,7 +32,6 @@
     </div>
   </div>
 </div>
-
 
 
 
