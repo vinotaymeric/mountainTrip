@@ -1,6 +1,8 @@
 const CardsHover = () => {
   const cards = document.querySelectorAll('.card')
 
+  if (cards==null) {return;}
+
   cards.forEach((card) => {
     const cardUser = card.querySelector('.card-user')
     const cardDescription = card.querySelector('.card-description')
