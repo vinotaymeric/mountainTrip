@@ -1,9 +1,33 @@
-<h2>Nouvelle sortie</h2>
+<div class ="container">
+<div class= "row">
+  <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
+      <div class="panel panel-success">
+            <div class="panel panel-heading"> 
+                  <h2 class ="text-center">Nouvelle sortie</h2>
+            </div>
+            <div class="panel-body">
+               <%=  simple_form_for [@itinerary, @trip],
+                  wrapper: :horizontal_form,
+                  wrapper_mappings: {
+                    date: :horizontal_multi_select,
+                  } do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.input :title %>
+                  <%= f.input :start_date %>
+                  <%= f.input :end_date %>
+                  <div class="form-group row mb-0">
+                    <div class="col-sm-9 offset-sm-3">
+                      <%= f.button :submit, class: "btn-primary" %>
+                      <%= f.button :button, 'Cancel', type: :back, class: 'btn btn-none' %>
+                      <%= f.button :button, 'Reset', type: :reset, class: 'btn btn-none' %>
+                      <%= link_to "cancel2", itineraries_path, class: "btn btn-danger" %>
+                    </div>
+                  </div>
+                <% end %>
+            </div>
+      </div>  
+  </div>
 
-<%= simple_form_for [@itinerary, @trip] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Créer", class: "btn btn-primary" %>
-<% end %>
 
+
+  
