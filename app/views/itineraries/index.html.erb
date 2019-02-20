@@ -1,23 +1,31 @@
 <h2>Itinéraires</h2>
 
-<div class="container">
+<ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active" id="tab-list">Liste</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined" id="tab-map">Carte</a>
+  </li>
+</ul>
+
+<div class="container" id="content-list">
   <div class="row">
     <% @itineraries.each do |itinerary|  %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
       </div>
-    </div>
     <% end %>
   </div>
 </div>
 
-
-<div class="container">
+<div class="container" id="content-map" hidden>
   <%= render partial: "mapbox" %>
 </div>
 
