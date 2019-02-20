@@ -3,18 +3,16 @@
 
   <div class="row">
     <% @trips.each do |trip|  %>
-    <div class="col-xs-12 col-sm-6 col-sm-4">
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= trip.itinerary.picture_url %>');">
         <%= link_to " ", itinerary_path(trip.itinerary), class: "card-link" %>
         <div class="card-category card-element-invisible"><%= trip.start_date %></div>
         <div class="card-description">
           <div class="card-infos">
-            <h2><%= trip.title %></h2>
-            <p class="card-comment card-element-invisible"><%= trip.start_date %></p>
-            <p class="card-comment card-element-invisible"><%= trip.user.user_name %></p>
+            <h2><%= trip.itinerary.title %></h2>
+            <p class="card-comment card-element-invisible"><%= trip.itinerary.content %></p>
           </div>
         </div>
-      <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
       </div>
     </div>
     <% end %>

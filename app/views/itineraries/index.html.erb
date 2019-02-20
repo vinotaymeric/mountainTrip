@@ -1,26 +1,27 @@
 <h2>Itinéraires</h2>
-
 <div class="container">
-  <div class="row">
-    <% @itineraries.each do |itinerary|  %>
-    <div class="col-xs-12 col-sm-6 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
-        <div class="card-category card-element-invisible">Popular</div>
-        <div class="card-description">
-          <div class="card-infos">
-            <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+  <div class="container">
+    <div class="row">
+      <% @itineraries.each do |itinerary|  %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
+          <div class="card-category card-element-invisible">Popular</div>
+          <div class="card-description">
+            <div class="card-infos">
+              <h2><%= link_to(itinerary.title, itinerary_path(itinerary)) %></h2>
+            </div>
           </div>
+          <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         </div>
-        <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
+
+
+  <div class="container">
+    <%= render partial: "mapbox" %>
 </div>
 
-
-<div class="container">
-  <%= render partial: "mapbox" %>
+<%= link_to 'Accueil', root_path, class: "btn btn-primary" %>
 </div>
-
-<%= link_to 'Edit Profile', edit_user_registration_path %>
