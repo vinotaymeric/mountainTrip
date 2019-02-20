@@ -25,13 +25,10 @@
             <h3 class="modal-title" id="myModalLabel" style="color:black;">Votre message</h4>
           </div>
           <div class="modal-body">
-            <%= simple_form_for [@trip, @message] do |f| %>
-              <%= f.input :content, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %>
+            <%= simple_form_for [@trip, @user_trip] do |f| %>
+              <div><%= f.input :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %></div>
+              <div><%= f.submit :Demander, class: "btn btn-primary" %></div>
             <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-            <%= link_to('Envoyer', trip_user_trips_path(@trip), method: :post, class: "btn btn-primary visible-btn") %>
           </div>
         </div>
       </div>
