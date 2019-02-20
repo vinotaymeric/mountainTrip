@@ -21,6 +21,9 @@
 
           <% if request.state == "demandé"  %>
             <%= link_to('Valider', accept_user_trip_path(request), method: :patch, class: "btn btn-success visible-btn") %>
+            <%= link_to('Refuser, il est moche', decline_user_trip_path(request), method: :patch, class: "btn btn-danger visible-btn") %>
+          <% elsif request.state == "refusé" %>
+            <span>Refusé</span>
           <% else %>
             <span>Déjà validé!</span>
           <% end %>

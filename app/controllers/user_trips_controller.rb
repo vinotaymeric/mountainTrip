@@ -14,10 +14,17 @@ class UserTripsController < ApplicationController
 
   def accept
     @request = UserTrip.find(params[:id])
-    @request.update!(state: "accepté")
     if @request.update!(state: "accepté")
       redirect_to my_trips_path
       flash[:notice] = "Copain validé!"
+    end
+  end
+
+  def decline
+    @request = UserTrip.find(params[:id])
+    if @request.update!(state: "refusé")
+      redirect_to my_trips_path
+      flash[:notice] = "Copain refusé!"
     end
   end
 

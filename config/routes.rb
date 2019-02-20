@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :user_trips, only: [] do
     member do
       patch :accept
+      patch :decline
     end
   end
 
