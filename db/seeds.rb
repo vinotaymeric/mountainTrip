@@ -31,7 +31,15 @@ sitemap1.xpath("//loc").each do |url|
   itinerary_ids << url.to_s.split("/")[4]
 end
 
-itinerary_ids[0..30].each do |id|
+# Taking random ids for the seed
+
+init = itinerary_ids[0..-31].sample(20)
+
+puts "#Seed with id #{init}"
+
+# Seeding itineraries
+
+init.each do |id|
   itinerary = Itinerary.new
   itinerary_hash = api_call("routes", id)
   itinerary.coord_x = itinerary_hash["geometry"]["geom"][17..-1].split(",")[0]
@@ -84,6 +92,10 @@ puts "User seeding completed"
 
 ## SEED FAKE TRIPS
 puts "Seeding trips..."
+
+# First we need to destroy messages
+
+Message.destroy_all
 
 Trip.destroy_all
 
