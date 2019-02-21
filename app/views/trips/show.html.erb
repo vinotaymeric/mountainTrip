@@ -1,8 +1,13 @@
 <% itinerary = @trip.itinerary %>
-
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= itinerary.picture_url %>');">
+<div class="container">
+  <div class="flex-container">
+     <div class="flex-object">
+<div class="card-iti" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= itinerary.picture_url %>');">
   <div class="card-category">
     <%= itinerary.activities.join(", ") %>
+    <h4><%= @trip.title %> </h4>
+    <p> par <%= @trip.user.user_name %> du <%= @trip.start_date %> au <%= @trip.end_date %> </p>
+    <p> <%= @trip.itinerary.title %></p>
     <ul class="list-inline">
       <!-- <li class="list-inline-item">Avec:</li> -->
       <% @users.each do |user| %>
@@ -16,11 +21,14 @@
       <% end %>
     </ul>
   </div>
-  <div class="card-description">
-    <h2><%= @trip.title %> - <%= @trip.itinerary.title %></h2>
-    <p>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %> créée par <%= @trip.user.user_name %>.
+  <div class="card-iti-description">
+
       <span id="participants">Participants: <%= @users.map { |user| user.user_name }.join(" ,") %></span>
-    </p>
+
+    <p>Difficulté: <%= @trip.itinerary.diffculty %></p>
+      <p>Altitude maximale: <%= @trip.itinerary.elevation_max %>m</p>
+      <p>Dénivelé: <%= @trip.itinerary.height_diff_up %>m</p>
+      <p>Outings: <%= @trip.itinerary.number_of_outings %></p>
   </div>
   <div>
 
@@ -51,10 +59,9 @@
 
   </div>
 </div>
+</div>
 
-<div class="container">
-  <div class="flex-container">
-    <div class="flex-object">
+    <div class="flex-object description">
       <h4>Description</h4>
       <p>
         <%= itinerary.content %>
