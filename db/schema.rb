@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_144400) do
     t.string "picture_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
     t.float "coord_long"
     t.float "coord_lat"
     t.text "content"

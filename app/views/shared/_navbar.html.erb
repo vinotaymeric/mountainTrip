@@ -13,7 +13,13 @@
             <%=  link_to "Mes sorties", my_trips_path, class: "navbar-mountain-item navbar-mountain-link" %>
             <div class="navbar-mountain-item">
               <div class="dropdown">
-                <img src="https://avatars2.githubusercontent.com/u/45632740?s=460&v=4" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+              
+              <% if @user.picture.file.nil? %>
+                  <img src="https://loremflickr.com/320/240?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+                <% else %>
+                  <img src="<%= cl_image_path @user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+              <% end %>
+              
                 <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
                   <li><a href="#">Profil</a></li>
                   <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></li>
@@ -44,5 +50,6 @@
             </ul>
           </div>
         </div>-->
+       
     </div>
 

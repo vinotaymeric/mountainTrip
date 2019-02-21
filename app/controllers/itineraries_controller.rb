@@ -1,6 +1,13 @@
 class ItinerariesController < ApplicationController
   def index
-    @itineraries = Itinerary.all
+
+    if params[:address].present? && params[:activity].present?
+      @itineraries = Itinerary.near(params[:address], 300).order("distance")
+      @itineraries = @itineraries.select { |itinerary| itinerary.activities.include?(params[:activity]) }
+    else
+      @itineraries = Itinerary.all
+    end
+
     @markers = @itineraries.map do |itinerary|
       {
         lng: itinerary[:coord_long],
