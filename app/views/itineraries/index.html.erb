@@ -13,12 +13,12 @@
     <% @itineraries.each do |itinerary|  %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
-          <%= link_to('', new_itinerary_trip_path(itinerary), class: "card-link") %>
+          <%= link_to('', itinerary_path(itinerary), class: "card-link") %>
           <div class="card-category card-element-invisible">Popular</div>
           <div class="card-description">
             <div class="card-infos">
               <h2><%=itinerary.title %></h2>
-              <%= link_to('', new_itinerary_trip_path(itinerary), class: "card-link") %>
+              <%= link_to('', itinerary_path(itinerary), class: "card-link") %>
               <p>Activité: <%= itinerary.activities.first %></p>
             </div>
           </div>
