@@ -53,12 +53,18 @@
   padding: 0 20px;
 }
 
+
+
 /* Navbar link */
 .navbar-mountain-link {
 
   font-size: 14px;
   color: rgba(255, 255, 255, 1);
 }
+
+.grey {
+    color: rgba(100, 100, 100, 1);
+  }
 .navbar-mountain-link:hover {
 
   transition:all 0.4s ease;
