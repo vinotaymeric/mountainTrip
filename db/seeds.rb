@@ -33,17 +33,28 @@ end
 
 # Taking random ids for the seed
 
-init = itinerary_ids[0..-31].sample(20)
-
-puts "#Seed with id #{init}"
+init_ids = itinerary_ids[0..-31].shuffle
 
 # Seeding itineraries
 
-init.each do |id|
-  itinerary = Itinerary.new
+init_ids.each do |id|
   itinerary_hash = api_call("routes", id)
+  itinerary = Itinerary.new
+
+  #CHECK DISTANCE FROM THE ALPS
+  #Feed epsg 3857 coords
   itinerary.coord_x = itinerary_hash["geometry"]["geom"][17..-1].split(",")[0]
   itinerary.coord_y = itinerary_hash["geometry"]["geom"][17..-1].split(",")[1][1..-2]
+
+  #Add gps coords
+  gps_coords = convert_epsg_3857_to_4326(itinerary.coord_x, itinerary.coord_y)
+  itinerary.coord_long = gps_coords[:long]
+  itinerary.coord_lat = gps_coords[:lat]
+
+  #If too far from chambery (150km), go to next iti
+  next if itinerary.distance_from([45.564601, 5.917781]) > 150
+
+
   itinerary.diffculty = itinerary_hash["global_rating"]
   itinerary.elevation_max = itinerary_hash["elevation_max"]
   itinerary.height_diff_up = itinerary_hash["height_diff_up"]
@@ -52,10 +63,6 @@ init.each do |id|
   itinerary.activities = itinerary_hash["activities"]
   itinerary.orientations = itinerary_hash["orientations"]
 
-  #Add gps coords
-  gps_coords = convert_epsg_3857_to_4326(itinerary.coord_x, itinerary.coord_y)
-  itinerary.coord_long = gps_coords[:long]
-  itinerary.coord_lat = gps_coords[:lat]
 
   if itinerary_hash["associations"]["images"][0] != nil
     itinerary.picture_url = "https://media.camptocamp.org/c2corg-active/#{itinerary_hash["associations"]["images"][0]["filename"]}"
@@ -75,8 +82,9 @@ init.each do |id|
 
   itinerary.number_of_outings = api_call("outings", id)["associations"]["recent_outings"]["total"]
   itinerary.save
-  sleep(1)
   print "."
+  break if Itinerary.count > 20
+  sleep(1)
 end
 
 puts "Itineraries seeding completed"
