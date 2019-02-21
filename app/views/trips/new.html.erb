@@ -3,11 +3,11 @@
 
 
       <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
-          <div class="date-form" >
-                <div class="date-form-title" >
+          <div class="my-form" >
+                <div class="my-form-title" >
                   <h2 class ="text-center">Nouvelle sortie</h2>
                 </div>
-                <div class="date-form-body">
+                <div class="my-form-body">
                    <%=simple_form_for [@itinerary, @trip],
                       wrapper: :horizontal_form,
                       wrapper_mappings: {
@@ -15,8 +15,8 @@
                       } do |f| %>
                       <%= f.error_notification %>
                       <%= f.input :title, label: "Nomme ta sortie!" %>
-                      <%= f.input :start_date, label: "Date de départ:" %>
-                      <%= f.input :end_date, label: "Date de retour:" %>
+                      <%= f.input :start_date, as: :date, html5: true, label: "Date de départ:"  %>
+                      <%= f.input :end_date, as: :date, html5: true, label: "Date de retour:" %>
                       <div class="form-group row mb-0">
                         <div class="col-sm-9 offset-sm-3">
                           <%= f.button :submit, class: "btn-primary" %>
