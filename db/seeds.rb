@@ -83,7 +83,7 @@ init_ids.each do |id|
   itinerary.number_of_outings = api_call("outings", id)["associations"]["recent_outings"]["total"]
   itinerary.save
   print "."
-  break if Itinerary.count > 20
+  break if Itinerary.count > 50
   sleep(1)
 end
 

@@ -5,7 +5,7 @@
     <%= itinerary.activities.join(", ") %>
   </div>
   <div class="card-description">
-    <h2><%= @trip.title %></h2>
+    <h2><%= @trip.title %> - <%= @trip.itinerary.title %></h2>
     <p>Sortie du <%= @trip.start_date %> au <%= @trip.end_date %> créée par <%= @trip.user.user_name %></p>
   </div>
   <div>
