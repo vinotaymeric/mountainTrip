@@ -50,7 +50,7 @@
                   <p><%= link_to(trip.itinerary.content, itinerary_path(trip.itinerary), class: "card-link card-comment card-element-invisible") %></p>
                 </div>
               </div>
-              <img class="card-user-avatar card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+              <img class="card-user-avatar card-element-invisible" src= <%= trip.user.avatar %>>
               <%= link_to " ", trip_messages_path(trip), class: "fas fa-envelope card-icon card-element-invisible" %>
             </div>
           </div>

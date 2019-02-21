@@ -8,6 +8,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # validates :user_name, presence: true
 
+  def avatar
+    if picture.file
+      return picture
+    elsif facebook_picture_url
+      return facebook_picture_url
+    else
+      return "https://loremflickr.com/320/320?lock=1"
+    end
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -26,10 +36,7 @@ class User < ApplicationRecord
     if user
       user.update(user_params)
     else
-      p "coucou"
-      p user_params
       user = User.new(user_params)
-      p user
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
