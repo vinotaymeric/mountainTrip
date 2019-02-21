@@ -1,9 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-
 class TripsController < ApplicationController
-
   def index
     @trips = Trip.all
   end
@@ -11,6 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @user_trip = UserTrip.new
+    @users = @trip.user_trips.where(state: "accepté").map { |user_trip| user_trip.user }
     @message = Message.new
   end
 

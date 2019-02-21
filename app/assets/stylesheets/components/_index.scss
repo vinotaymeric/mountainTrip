@@ -12,9 +12,20 @@
 @import "dateform";
 
 body {
-  background-color: #F0FBEF;
+  background-color: rgba(98, 148, 96, 0.1);
   display:table;
   height: 100%;
     width: 100%;
     margin: 0;
 }
+
+.btn {
+  background-color: rgb(98,148,96);
+  border-color: rgb(98, 148, 96);
+}
+
+// .btn:hover {
+//   background-color: rgb(98,148,96);
+//   border-color: rgb(98,148,96);
+// }
+
