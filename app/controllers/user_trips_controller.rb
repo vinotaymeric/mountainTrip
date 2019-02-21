@@ -5,12 +5,18 @@ class UserTripsController < ApplicationController
     @request.user = current_user
     @trip = Trip.find(params[:trip_id])
     @request.trip = @trip
-    @request.state = "demandé"
 
-    if @request.save!
-      redirect_to trip_messages_path(@trip)
-      flash[:notice] = "Demande envoyée. Montrez que vous êtes sympa, vos seins, etc."
+    if @trip.user == current_user
+      redirect_to trip_path(@trip)
+      flash[:alert] = "C'est toi qui a créé la sortie boloss."
+    else
+      @request.state = "demandé"
+      if @request.save!
+        redirect_to trip_messages_path(@trip)
+        flash[:notice] = "Demande envoyée. Montrez que vous êtes sympa, vos seins, etc."
+      end
     end
+
   end
 
   def accept
