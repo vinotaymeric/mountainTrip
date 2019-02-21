@@ -7,6 +7,7 @@
     <% if trip.user_trips.empty? %>
       <p>Personne ne veut venir avec toi, gros looser.</p>
       <p>==> Partage le trip sur <a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook-f"></i></a></p>
+      <br>
     <% else %>
       <% trip.user_trips.each do |request| %>
         <div class="message">
@@ -16,7 +17,7 @@
             <p><%= request.created_at.to_s.first(9) %></p>
           </div>
           <div class="message-body">
-            <p><strong>Son dernier message en dur</strong></p>
+            <p><strong><%= request.user.messages.last.content %></strong></p>
           </div>
           <div>
             <% if request.state == "demandé"  %>
