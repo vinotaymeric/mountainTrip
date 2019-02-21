@@ -19,6 +19,7 @@
             <div class="card-infos">
               <h2><%=itinerary.title %></h2>
               <%= link_to('', new_itinerary_trip_path(itinerary), class: "card-link") %>
+              <p>Activité: <%= itinerary.activities.first %></p>
             </div>
           </div>
           <img class="card-user card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -31,7 +32,3 @@
 <div class="container" id="content-map" hidden>
   <%= render partial: "mapbox" %>
 </div>
-
-
-<%= link_to 'Accueil', root_path, class: "btn btn-primary" %>
-

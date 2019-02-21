@@ -1,49 +1,67 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');">
-  <div class="banner-content">
-    <h1>Mountain Trip</h1>
-    <p>You will never walk alone</p>
-
-
-    <div style="position: relative; height: 135px; width: 400px;">
-      <%= form_tag itineraries_path, method: :get, class: "form-group" do %>
-        <%= text_field_tag :address,
-          params[:address],
-          class: "form-control",
-          id: "itinerary_address",
-          placeholder: "Adresse de départ"
-        %>
-        <%= select_tag :activity,
-          options_for_select(["rock_climbing", "mountain_climbing", "skitouring", "snow_ice_mixed" ],
-          params[:product]),
-          class: "form-control",
-          include_blank: "Activité"
-        %>
-        <%= submit_tag "Créer", class: "btn btn-primary card-button" %>
-      <% end %>
-    </div>
-
-  </div>
-</div>
-<div class="container">
-  <h3>Les sorties du weekend:</h3>
-  <div class="row">
-    <% @trips.each do |trip| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= trip.itinerary.picture_url %>');">
-          <%= link_to " ", itinerary_path(trip.itinerary), class: "card-link" %>
-          <div class="card-category card-element-invisible"><%= trip.start_date %></div>
-          <div class="card-description">
-            <div class="card-infos">
-              <h2><%= link_to(trip.title, itinerary_path(trip.itinerary)) %></h2>
-              <%= link_to('', itinerary_path(trip.itinerary), class: "card-link") %>
-              <p><%= link_to(trip.itinerary.content, itinerary_path(trip.itinerary), class: "card-link card-comment card-element-invisible") %></p>
-            </div>
-          </div>
-          <img class="card-user-avatar card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <%= link_to " ", trip_messages_path(trip), class: "fas fa-envelope card-icon card-element-invisible" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TODO</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');">
+      <div class="banner-content">
+        <h1>Mountain Trip</h1>
+        <p>You will never walk alone</p>
+        <div style="position: relative; height: 135px; width: 400px;">
+          <%= form_tag itineraries_path, method: :get, class: "form-group" do %>
+            <%= text_field_tag :address,
+              params[:address],
+              class: "form-control",
+              id: "itinerary_address",
+              placeholder: "Adresse de départ"
+            %>
+            <%= select_tag :activity,
+              options_for_select(["rock_climbing", "mountain_climbing", "skitouring", "snow_ice_mixed" ],
+              params[:product]),
+              class: "form-control",
+              include_blank: "Activité"
+            %>
+            <%= submit_tag "Créer une sortie", class: "btn btn-primary card-button" %>
+          <% end %>
         </div>
 
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
+    <div class="container">
+      <h3>Les sorties du weekend:</h3>
+      <div class="row">
+        <% @trips.each do |trip| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= trip.itinerary.picture_url %>');">
+              <%= link_to " ", itinerary_path(trip.itinerary), class: "card-link" %>
+              <div class="card-category card-element-invisible"><%= trip.start_date %></div>
+              <div class="card-description">
+                <div class="card-infos">
+                  <h2><%= link_to(trip.title, itinerary_path(trip.itinerary)) %></h2>
+                  <%= link_to('', itinerary_path(trip.itinerary), class: "card-link") %>
+                  <p><%= link_to(trip.itinerary.content, itinerary_path(trip.itinerary), class: "card-link card-comment card-element-invisible") %></p>
+                </div>
+              </div>
+              <img class="card-user-avatar card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+              <%= link_to " ", trip_messages_path(trip), class: "fas fa-envelope card-icon card-element-invisible" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= render 'shared/footer' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
+
+
