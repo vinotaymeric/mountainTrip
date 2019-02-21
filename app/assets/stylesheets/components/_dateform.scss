@@ -5,12 +5,50 @@
 }
 
 
+.form-footer {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-container{
+  width: 80%;
+}
+
 #trip_title {
   opacity: 0.5;
   &:focus {
     opacity: 0.7;
   }
 }
+
+#user_email {
+  opacity: 0.5;
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+#user_password {
+  opacity: 0.5;
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+#user_password_confirmation {
+  opacity: 0.5;
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+#user_user_name {
+  opacity: 0.5;
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+
 
 .form-group.row.string.optional.trip_title {
   display: flex;

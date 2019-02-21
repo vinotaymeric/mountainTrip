@@ -1,34 +1,30 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1548825519-a10e24471ff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');">
-      <div class="banner-content">
-
-
-      <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
-          <div class="my-form" >
-                <div class="my-form-title" >
-                  <h2 class ="text-center">Nouvelle sortie</h2>
-                </div>
-                <div class="my-form-body">
-                   <%=simple_form_for [@itinerary, @trip],
-                      wrapper: :horizontal_form,
-                      wrapper_mappings: {
-                        date: :horizontal_multi_select,
-                      } do |f| %>
-                      <%= f.error_notification %>
-                      <%= f.input :title, label: "Nomme ta sortie!" %>
-                      <%= f.input :start_date, as: :date, html5: true, label: "Date de départ:"  %>
-                      <%= f.input :end_date, as: :date, html5: true, label: "Date de retour:" %>
-                      <div class="form-group row mb-0">
-                        <div class="col-sm-9 offset-sm-3">
-                          <%= f.button :submit, class: "btn-primary" %>
-                          <%= link_to "Retour", itineraries_path, class: "btn btn-danger" %>
-                        </div>
-                      </div>
-                    <% end %>
-                </div>
-
-
+  <div class="form-container">
+    <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
+      <div class="my-form" >
+        <div class="my-form-title" >
+          <h2 class ="text-center">Nouvelle sortie</h2>
+        </div>
+        <div class="my-form-body">
+         <%=simple_form_for [@itinerary, @trip],
+         wrapper: :horizontal_form,
+         wrapper_mappings: {
+          date: :horizontal_multi_select,
+        } do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title, label: "Nomme ta sortie!" %>
+        <%= f.input :start_date, as: :date, html5: true, label: "Date de départ:"  %>
+        <%= f.input :end_date, as: :date, html5: true, label: "Date de retour:" %>
+        <div class="form-group row mb-0">
+          <div class="col-sm-9 offset-sm-3">
+            <%= f.button :submit, class: "btn-primary" %>
+            <%= link_to "Retour", itineraries_path, class: "btn btn-danger" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
 
 
 
