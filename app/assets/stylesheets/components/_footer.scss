@@ -1,34 +1,27 @@
 .footer {
   height: 200px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  p {
-    background: linear-gradient(to right, #F0FBEF 50%, #96BE8C 50%);
-    background-size: 200% 100%;
-    background-position:left bottom;}
-  p:hover {
-    background: linear-gradient(to right, #F0FBEF 50%, #96BE8C 50%);
-    background-size: 200% 100%;
-    background-position:right bottom;
-    transition:all 2s ease
-    }
+  background-color: rgba(20,20,20,0.9);
+  border-color: white;
+  padding-top: 20px;
 
+  p {
+    color: rgba(233,233,233,0.7);
+
+  p:hover {
+    color: rgba(233,233,233,0.9);
+    }
+}
   .fab {
     &:hover {
-      font-size: 2em;
+      color: rgba(233,233,233,0.95);
       transition-duration: 0.3s;
       transition-timing-function: linear;
     }
   }
 
-
    a {
-    color: black;
-    opacity: 0.15;
+    color: rgba(233,233,233,0.7);
     font-size: 24px;
     padding: 0px 10px;
   }

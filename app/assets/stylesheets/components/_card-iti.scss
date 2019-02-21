@@ -1,0 +1,35 @@
+.card-iti {
+  height: 300px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin-bottom: 15px;
+  border-radius: 2px;
+  transition-duration: 1.5s;
+  box-shadow:2px;
+  position: relative;
+  &:hover {
+        border-radius:4px;
+        transition-duration: 1.5s;
+        transition-timing-function: ease;
+    }
+}
+
+
+.card-iti-description {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: rgba( 255, 255, 255, 0.8);
+  width: 30%;
+  height:100%;
+  transition-duration: 1.5s;
+  transition-timing-function: ease;
+}
+
+
+.card-iti-element-up {
+  width: 50%;
+}

@@ -3,6 +3,7 @@
 @import "navbar";
 @import "banner";
 @import "card";
+@import "card-iti";
 @import "logo";
 @import "footer";
 @import "message";
@@ -12,7 +13,7 @@
 @import "dateform";
 
 body {
-  background-color: rgba(98, 148, 96, 0.1);
+  background-color: white;
   display:table;
   height: 100%;
     width: 100%;
@@ -26,4 +27,8 @@ body {
 
 .form-control {
   margin-bottom: 10px;
+}
+
+.description p {
+  text-align: justify;
 }

@@ -22,11 +22,17 @@ const InitUpdateNavbar = () => {
 }
 
 const fixNavbar = () => {
+  const logo = document.querySelector('.navbar-mountain.navbar-fixed-top.fixed-navbar')
   const form = document.querySelector('.form-container')
   const navbar = document.querySelector('.navbar-mountain')
   if (form == null) {
+    console.log("je suis là")
     navbar.classList.add("fixed-navbar")
+    navbar.insertAdjacentHTML('afterbegin', '<a href="/" class="navbar-mountain-logo"> <img src="https://www.dropbox.com/s/1uau2vsrtyss16f/logo-mountain.png?dl=0" ></a>');
     navbar.insertAdjacentHTML('afterend', '<div style="height: 72px;"><div>') ;
+  }
+  else {
+    navbar.insertAdjacentHTML('afterbegin', '<a href="/" class="navbar-mountain-logo"><img src="https://www.dropbox.com/s/yfs5e12f5usgu2b/logo-mountain-white.png?dl=0" ></a>');
   }
 }
 
