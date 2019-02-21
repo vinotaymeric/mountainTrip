@@ -3,6 +3,7 @@ import "bootstrap";
 import { InitUpdateNavbar, fixNavbar } from '../components/navbar';
 import initTabs from '../components/tabs';
 import CardsHover from '../components/cards';
+import CardsItiHover from '../components/cardsIti';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import initMapbox from '../plugins/init_mapbox';
 // import datePicker from '../components/datepicker';
@@ -15,6 +16,7 @@ if (window.location.pathname != "/" && window.location.pathname != "/trips/new")
 initTabs(initMapbox);
 
 CardsHover();
+CardsItiHover();
 
 
 initAutocomplete();

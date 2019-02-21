@@ -4,11 +4,12 @@
 
   <div class="flex-container">
      <div class="flex-object">
-    <div class="card-iti" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= @itinerary.picture_url %>');">
+    <div class="card-iti">
+      <%= image_tag @itinerary.picture_url %>
     <div class="card-category">
       <%= @itinerary.activities.join(", ") %>
     </div>
-    <div class="card-iti-description">
+    <div class="card-iti-description card-iti-element-invisible">
       <h2><%= @itinerary.title %></h2>
       <p>Difficulté: <%= @itinerary.diffculty %></p>
       <p>Altitude maximale: <%= @itinerary.elevation_max %>m</p>
