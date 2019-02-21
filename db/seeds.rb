@@ -54,6 +54,8 @@ init_ids.each do |id|
   #If too far from chambery (150km), go to next iti
   next if itinerary.distance_from([45.564601, 5.917781]) > 150
 
+  next if itinerary_hash["associations"]["images"][0] == nil
+  itinerary.picture_url = "https://media.camptocamp.org/c2corg-active/#{itinerary_hash["associations"]["images"][0]["filename"]}"
 
   itinerary.diffculty = itinerary_hash["global_rating"]
   itinerary.elevation_max = itinerary_hash["elevation_max"]
@@ -63,13 +65,6 @@ init_ids.each do |id|
   itinerary.activities = itinerary_hash["activities"]
   itinerary.orientations = itinerary_hash["orientations"]
 
-
-  if itinerary_hash["associations"]["images"][0] != nil
-    itinerary.picture_url = "https://media.camptocamp.org/c2corg-active/#{itinerary_hash["associations"]["images"][0]["filename"]}"
-  else
-    itinerary.picture_url = "http://woodspringtrust.org/wp-content/uploads/2013/04/placeholder.jpg"
-    # itinerary.picture_url = "https://source.unsplash.com/collection/357786/600x300"
-  end
 
   itinerary_hash["locales"].each do |locale|
     if locale["lang"] == "fr" && locale["title"] != nil
@@ -84,7 +79,7 @@ init_ids.each do |id|
   itinerary.save
   print "."
   break if Itinerary.count > 50
-  sleep(1)
+  sleep(2)
 end
 
 puts "Itineraries seeding completed"
@@ -95,7 +90,7 @@ puts "Seeding users..."
 User.destroy_all
 
 User.create!(user_name: "Nico", email: "nico@crux.io", password: "qwertyuiop")
-User.create!(user_name: "Aymeric", email: "aymeric@crux.io", password: "qwertyuiop")
+User.create!(user_name: "Aymeric", email: "aymeric@crux.io", password: "azerty")
 User.create!(user_name: "Ouramdane", email: "ouramadane@crux.io", password: "qwertyuiop")
 User.create!(user_name: "Jordi", email: "jordi@crux.io", password: "qwertyuiop")
 
