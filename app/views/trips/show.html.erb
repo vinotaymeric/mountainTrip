@@ -23,12 +23,14 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h3 class="modal-title" id="myModalLabel" style="color:black;">Votre message</h4>
           </div>
-          <div class="modal-body" style="height: 10px; width: auto;">
+          <div class="modal-body">
             <%= simple_form_for [@trip, @user_trip] do |f| %>
-              <div><%= f.input :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %></div>
-              <div><%= f.submit :Demander, class: "btn btn-primary card-button" %></div>
-            <% end %>
+            <%= f.text_area :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false, style: "width: 500px;" %>
           </div>
+          <div class="modal-footer">
+              <div><%= f.submit :Demander, class: "btn btn-primary" %></div>
+          </div>
+            <% end %>
         </div>
       </div>
     </div>
