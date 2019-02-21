@@ -11,7 +11,7 @@ import initAutocomplete from '../plugins/init_autocomplete';
 // import InitTyped from '../components/init_typed';
 
 InitUpdateNavbar();
-if (window.location.pathname != "/" && window.location.pathname != "/users/sign_up" && window.location.pathname != "/users/sign_in") { fixNavbar() }
+if (window.location.pathname != "/" && window.location.pathname != "/trips/new") { fixNavbar() }
 initTabs(initMapbox);
 
 CardsHover();

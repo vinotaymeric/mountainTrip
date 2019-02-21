@@ -10,16 +10,7 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-     <%= render 'shared/navbar' %>
-
-    <% if action_name == "new" %>
-        <%= yield %>
-    <% else %>
-      <div class="container">
-        <%= yield %>
-      </div>
-      <%= render 'shared/footer' %>
-    <% end %>
+    <%= yield %>
 
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
