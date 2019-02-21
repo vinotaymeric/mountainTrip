@@ -1,65 +1,65 @@
 <% itinerary = @trip.itinerary %>
 <div class="container">
   <div class="flex-container">
-     <div class="flex-object">
-<div class="card-iti" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('<%= itinerary.picture_url %>');">
-  <div class="card-category">
-    <%= itinerary.activities.join(", ") %>
-    <h4><%= @trip.title %> </h4>
-    <p> par <%= @trip.user.user_name %> du <%= @trip.start_date %> au <%= @trip.end_date %> </p>
-    <p> <%= @trip.itinerary.title %></p>
-    <ul class="list-inline">
-      <!-- <li class="list-inline-item">Avec:</li> -->
-      <% @users.each do |user| %>
-      <li class="list-inline-item">
-        <% if user.picture.file.nil? %>
-          <img src="https://loremflickr.com/320/320?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
-        <% else %>
-          <img src="<%= cl_image_path user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
-          <% end %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="card-iti-description">
+   <div class="flex-object">
+     <div class="card-iti">
+      <%= image_tag @trip.itinerary.picture_url %>
+      <div class="card-category">
+        <%= itinerary.activities.join(", ") %>
+        <p> par <%= @trip.user.user_name %></p><p> du <%= @trip.start_date %> au <%= @trip.end_date %> </p>
 
-      <span id="participants">Participants: <%= @users.map { |user| user.user_name }.join(" ,") %></span>
-
-    <p>Difficulté: <%= @trip.itinerary.diffculty %></p>
-      <p>Altitude maximale: <%= @trip.itinerary.elevation_max %>m</p>
-      <p>Dénivelé: <%= @trip.itinerary.height_diff_up %>m</p>
-      <p>Outings: <%= @trip.itinerary.number_of_outings %></p>
-  </div>
-  <div>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary card-button" data-toggle="modal" data-target="#myModal">
-      Je veux participer
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="myModalLabel" style="color:black;">Votre message</h4>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for [@trip, @user_trip] do |f| %>
-            <%= f.input :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %>
-          </div>
-          <div class="modal-footer">
-              <div><%= f.submit :Demander, class: "btn btn-primary" %></div>
-          </div>
+        <ul class="list-inline">
+          <!-- <li class="list-inline-item">Avec:</li> -->
+          <% @users.each do |user| %>
+          <li class="list-inline-item">
+            <% if user.picture.file.nil? %>
+            <img src="https://loremflickr.com/320/320?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+            <% else %>
+            <img src="<%= cl_image_path user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
             <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="card-iti-description">
+        <h4><%= @trip.title %> </h4>
+        <p> <%= @trip.itinerary.title %></p>
+        <p>Difficulté: <%= @trip.itinerary.diffculty %></p>
+        <p>Altitude maximale: <%= @trip.itinerary.elevation_max %>m</p>
+        <p>Dénivelé: <%= @trip.itinerary.height_diff_up %>m</p>
+        <p>Outings: <%= @trip.itinerary.number_of_outings %></p>
+         <span id="participants">Participants: <%= @users.map { |user| user.user_name }.join(" ,") %></span>
+      </div>
+      <div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary card-button" data-toggle="modal" data-target="#myModal">
+          Je veux participer
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel" style="color:black;">Votre message</h4>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for [@trip, @user_trip] do |f| %>
+                  <%= f.input :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %>
+                </div>
+                <div class="modal-footer">
+                  <div><%= f.submit :Demander, class: "btn btn-primary" %></div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-
-  </div>
-</div>
-</div>
 
     <div class="flex-object description">
       <h4>Description</h4>
@@ -69,11 +69,11 @@
     </div>
     <div class="flex-object">
       <h4>Météo</h4>
-        <img src=<%= "http://my.meteoblue.com/visimage/meteogram_web?apikey=41f2dd49fb6a&lat=#{itinerary.coord_lat}&lon=#{itinerary.coord_long}&asl=#{itinerary.elevation_max}" %> alt="Météo">
+      <img src=<%= "http://my.meteoblue.com/visimage/meteogram_web?apikey=41f2dd49fb6a&lat=#{itinerary.coord_lat}&lon=#{itinerary.coord_long}&asl=#{itinerary.elevation_max}" %> alt="Météo">
     </div>
     <div class="flex-object">
       <h4>3D Map</h4>
-        <iframe src=<%= "https://fatmap.com/@#{itinerary.coord_lat},#{itinerary.coord_long},#{itinerary.elevation_max},-35.9049826,92.6848191,2388.9221056,normal" %> frameborder="" allowfullscreen="" width="100%" height="600"></iframe>
+      <iframe src=<%= "https://fatmap.com/@#{itinerary.coord_lat},#{itinerary.coord_long},#{itinerary.elevation_max},-35.9049826,92.6848191,2388.9221056,normal" %> frameborder="" allowfullscreen="" width="100%" height="600"></iframe>
     </div>
   </div>
 </div>
