@@ -25,7 +25,8 @@
               <div class="card-description">
                 <div class="card-infos">
                   <h2><%= link_to(trip.title, itinerary_path(trip.itinerary)) %></h2>
-                  <p class="card-comment card-element-invisible"><%= trip.itinerary.content %></p>
+                  <%= link_to('', itinerary_path(trip.itinerary), class: "card-link") %>
+                  <p><%= link_to(trip.itinerary.content, itinerary_path(trip.itinerary), class: "card-link card-comment card-element-invisible") %></p>
                 </div>
               </div>
               <img class="card-user-avatar card-element-invisible" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
