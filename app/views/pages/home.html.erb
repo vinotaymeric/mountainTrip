@@ -24,13 +24,14 @@
               placeholder: "Adresse de départ"
             %>
             <%= select_tag :activity,
-              options_for_select(["rock_climbing", "mountain_climbing", "skitouring", "snow_ice_mixed" ],
+              options_for_select( Itinerary::ACTIVITIES_MAPPING.map {|k, v| [v, k]},
               params[:product]),
               class: "form-control",
               include_blank: "Activité"
             %>
             <%= submit_tag "Créer une sortie", class: "btn btn-primary card-button" %>
           <% end %>
+            <%= link_to "Rejoindre une sortie", trips_path, class: "btn btn-primary card-button-left" %>
         </div>
       </div>
     </div>
