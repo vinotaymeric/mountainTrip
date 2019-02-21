@@ -2,7 +2,7 @@ class ItinerariesController < ApplicationController
   def index
 
     if params[:address].present? && params[:activity].present?
-      @itineraries = Itinerary.near(params[:address], 100)
+      @itineraries = Itinerary.near(params[:address], 300).order("distance")
       @itineraries = @itineraries.select { |itinerary| itinerary.activities.include?(params[:activity]) }
     else
       @itineraries = Itinerary.all
