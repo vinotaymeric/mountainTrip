@@ -1,44 +1,43 @@
-<div class ="container">
-<div class= "row">
- <!--right form-->
-  <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
-      <div class="panel panel-success .panel-transparent">
-            <div class="panel panel-heading">
-                  <h2 class ="text-center">Sign up</h2>
-            </div>
-            <div class="panel-body">
-                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                        <%= f.error_notification %>
-                           <div class="form-group">
-                              <div class="form-inputs">
-                                    <%= f.input :email,
-                                                required: true,
-                                                autofocus: true,
-                                                input_html: { autocomplete: "email" }%>
-                                    <%= f.input :password,
-                                                required: true,
-                                                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                                                input_html: { autocomplete: "new-password" } %>
-                                    <%= f.input :password_confirmation,
-                                                required: true,
-                                                input_html: { autocomplete: "new-password" } %>
-                                    <%= f.input :user_name %>
-
-                                    <%= f.input :picture %>
-                                    <%= f.input :picture_cache, as: :hidden %>
-                                    <div>
-
-                                    <div class="form-actions" >
-                                    <%= f.button :submit, "Sign up",class: "btn btn-primary" %>
-
-                                    </div>
-                                    <% end %>
-                              </div>
-
-                        </div>
-
-            <div class="panel-footer text-center" >
-                  <%= render "users/shared/links" %>
-            </div>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/314703/pexels-photo-314703.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+  <div class="form-container">
+   <!--right form-->
+   <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
+    <div class="my-form">
+      <div class="my-form-title">
+        <h2 class ="text-center">Sign up</h2>
       </div>
+      <div class="my-form-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-group">
+          <div class="form-inputs">
+            <%= f.input :email,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "email" }%>
+            <%= f.input :password,
+            required: true,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+            required: true,
+            input_html: { autocomplete: "new-password" } %>
+            <%= f.input :user_name %>
+
+            <%= f.input :picture %>
+            <%= f.input :picture_cache, as: :hidden %>
+            <div>
+              <div class="form-actions" >
+                <%= f.button :submit, "Sign up",class: "btn btn-primary" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-footer text-center" >
+            <%= render "users/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
