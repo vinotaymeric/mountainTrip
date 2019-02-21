@@ -3,7 +3,11 @@ require 'open-uri'
 
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    if params[:activity].present?
+      @trips = Trip.all.select { |trip| trip.itinerary.activities.include?(params[:activity]) }
+    else
+      @trips = Trip.all
+    end
   end
 
   def show
