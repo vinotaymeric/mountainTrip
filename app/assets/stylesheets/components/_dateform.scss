@@ -1,12 +1,36 @@
 .my-form {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #C2DDC0;
-    padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(78, 78, 78, 0.85);
+  padding: 10px;
+  position: relative;
 }
 
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+.btn.btn.btn-primary {
+  width: 50%;
+}
 
 .form-footer {
-    background-color: rgba(255, 255, 255, 0.3);
+  width: 80%;
+  justify-content: center;
+  text-decoration: none;
+  display:inline;
+  a {
+    color: rgba(78, 78, 78, 0.85);
+    font-weight: bold;
+    &:hover {
+      color: rgba(40, 40, 40, 0.85);
+    }
+  }
+}
+
+.form-footer-links {
+  border-color: black;
+  background-color: red;
+  width: 100%;
 }
 
 .form-container{
@@ -64,9 +88,9 @@
 }
 
 .form-group.row.date.required.trip_end_date{
-   display: flex;
-  justify-content: space-around;
-  align-items: center;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
 }
 
 .form-group.row.mb-0 {

@@ -11,7 +11,8 @@
 }
 
 .fixed-navbar {
-  background-color: #629460;
+  background: white;
+  color: rgba(78, 78, 78, 0.85);
 }
 
 .navbar-invisible {
@@ -19,11 +20,10 @@
 }
 
 .navbar-green {
-    background-color: #629460;
-    opacity: 0.8;
+    background: white;
 }
 /* Logo */
-.navbar-mountain-brand img {
+.navbar-mountain-logo img {
   height: 50px;
 }
 
@@ -49,18 +49,14 @@
 
 /* Navbar link */
 .navbar-mountain-link {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
-  background-size: 200% 100%;
-  background-position:left bottom;
+
   font-size: 14px;
-  color: #E6E6E6;
-  opacity: 0.7;
+  color: rgba(78, 78, 78, 0.85);
+  opacity: 0.8;
 }
 .navbar-mountain-link:hover {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
-  background-size: 200% 100%;
-  background-position:right bottom;
-  transition:all 2s ease;
+
+  transition:all 0.4s ease;
   text-decoration: none;
 }
 
@@ -69,7 +65,7 @@
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
-  opacity:0.5;
+  opacity:0.8;
 }
 .navbar-mountain-dropdown-menu li > a {
   transition: color 0.5s ease;

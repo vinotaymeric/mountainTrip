@@ -1,55 +1,53 @@
 <div class="navbar-mountain navbar-fixed-top">
 
-     <a href="/" class="navbar-mountain-brand">
-         <!-- # image_tag('logo-mountain-trip.png') -->
-      </a>
-      <div class="navbar-mountain-right hidden-xs hidden-sm">
-        <% if user_signed_in? %>
-      <!-- Links when logged in -->
-            <%= link_to ("<i class='fas fa-plus-circle'></i>
-            Proposer une nouvelle sortie").html_safe, itineraries_path, class: "navbar-mountain-item navbar-mountain-link" %>
-            <!--<%= link_to "Mes Sorties", "#", class: "navbar-mountain-item navbar-mountain-link" %>-->
-            <!--liens actifs pour mes sorties et proposer sortie à intégerer au design de la nav bar-->
-            <%=  link_to "Mes sorties", my_trips_path, class: "navbar-mountain-item navbar-mountain-link" %>
-            <div class="navbar-mountain-item">
-              <div class="dropdown">
-              
-              <% if @user.picture.file.nil? %>
-                  <img src="https://loremflickr.com/320/240?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
-                <% else %>
-                  <img src="<%= cl_image_path @user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
-              <% end %>
-              
-                <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
-                  <li><a href="#">Profil</a></li>
-                  <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></li>
-                </ul>
-              </div>
-            </div>
-        <% else %>
-        <!-- Login link (when logged out) -->
-          <%= link_to "S'inscrire", new_user_registration_path, class: "navbar-mountain-item navbar-mountain-link" %>
-          <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-mountain-item navbar-mountain-link" %>
-         <% end %>
+ <a href="/" class="navbar-mountain-logo">
+  <%= image_tag('logo-mountain.png') %>Mountain trip</p>
+ </a>
+ <div class="navbar-mountain-right hidden-xs hidden-sm">
+  <% if user_signed_in? %>
+  <!-- Links when logged in -->
+  <%= link_to ("<i class='far fa-eye'></i>
+  Voir mes itinéraires").html_safe, itineraries_path, class: "navbar-mountain-item navbar-mountain-link" %>
+  <!--<%= link_to "Mes Sorties", "#", class: "navbar-mountain-item navbar-mountain-link" %>-->
+  <!--liens actifs pour mes sorties et proposer sortie à intégerer au design de la nav bar-->
+  <%=  link_to "Mon profil", my_trips_path, class: "navbar-mountain-item navbar-mountain-link" %>
+  <div class="navbar-mountain-item">
+    <div class="dropdown">
 
-        <!-- Profile picture with dropdown list -->
+      <% if @user.picture.file.nil? %>
+      <img src="https://loremflickr.com/320/240?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+      <% else %>
+      <img src="<%= cl_image_path @user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+      <% end %>
 
-      </div>
-
-      <!--<div class="navbar-mountain-item hidden-md hidden-lg">
-          <div class="dropdown">
-            <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-            <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
-              <li><a href="">
-                    <i class="fas fa-plus-circle"></i>
-                    Proposer une nouvelle sortie
-                  </a>
-                </li>
-              <li><a href="#">Mes sorties</a></li>
-              <li><a href="#">Messages</a></li>
-            </ul>
-          </div>
-        </div>-->
-       
+      <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
+        <li><a href="#">Profil</a></li>
+        <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></li>
+      </ul>
     </div>
+  </div>
+  <% else %>
+  <!-- Login link (when logged out) -->
+  <%= link_to "S'inscrire", new_user_registration_path, class: "navbar-mountain-item navbar-mountain-link" %>
+  <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-mountain-item navbar-mountain-link" %>
+  <% end %>
+
+  <!-- Profile picture with dropdown list -->
+
+</div>
+<div class="navbar-mountain-item hidden-md hidden-lg">
+  <div class="dropdown">
+    <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+    <ul class="dropdown-menu dropdown-menu-right navbar-mountain-dropdown-menu">
+      <li><a href="">
+        <i class="far fa-eye"></i>
+        Voir mes itinéraires
+      </a>
+    </li>
+    <li><a href="#">Mon profil</a></li>
+  </ul>
+</div>
+</div>
+
+</div>
 

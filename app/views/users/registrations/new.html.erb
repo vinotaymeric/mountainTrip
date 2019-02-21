@@ -4,7 +4,7 @@
    <div class ="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 ">
     <div class="my-form">
       <div class="my-form-title">
-        <h2 class ="text-center">Sign up</h2>
+        <h2 class ="text-center">S'inscrire</h2>
       </div>
       <div class="my-form-body">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -12,29 +12,31 @@
         <div class="form-group">
           <div class="form-inputs">
             <%= f.input :email,
+            label: "Mon adresse mail:",
             required: true,
             autofocus: true,
             input_html: { autocomplete: "email" }%>
             <%= f.input :password,
+            label: "Mon mot de passe:",
             required: true,
-            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            hint: ("#{@minimum_password_length} caractères minimums" if @minimum_password_length),
             input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
+            label: "Confirmer mon mot de passe:",
             required: true,
             input_html: { autocomplete: "new-password" } %>
-            <%= f.input :user_name %>
+            <%= f.input :user_name,
+            label: "Mon pseudo:" %>
 
-            <%= f.input :picture %>
+            <%= f.input :picture,
+            label: "Mon avatar" %>
             <%= f.input :picture_cache, as: :hidden %>
             <div>
               <div class="form-actions" >
-                <%= f.button :submit, "Sign up",class: "btn btn-primary" %>
+                <%= f.button :submit, "Je m'incris",class: "btn btn-primary" %>
               </div>
-              <% end %>
+            <% end %>
             </div>
-          </div>
-          <div class="form-footer text-center" >
-            <%= render "users/shared/links" %>
           </div>
         </div>
       </div>
