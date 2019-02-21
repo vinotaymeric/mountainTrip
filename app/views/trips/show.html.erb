@@ -25,7 +25,7 @@
           </div>
           <div class="modal-body">
             <%= simple_form_for [@trip, @user_trip] do |f| %>
-            <%= f.text_area :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false, style: "width: 500px;" %>
+            <%= f.text_area :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false, style: "width: 500px; color: black;" %>
           </div>
           <div class="modal-footer">
               <div><%= f.submit :Demander, class: "btn btn-primary" %></div>
