@@ -20,7 +20,7 @@
     </div>
     <div class="flex-object">
       <h4>3D Map</h4>
-        <iframe src=<%= "https://fatmap.com/@#{@itinerary.coord_lat},#{@itinerary.coord_long},24320.4784125,-35.9049826,92.6848191,2388.9221056,normal" %> frameborder="" allowfullscreen="" width="100%" height="600"></iframe>
+        <iframe src=<%= "https://fatmap.com/@#{@itinerary.coord_lat},#{@itinerary.coord_long},#{@itinerary.elevation_max},-35.9049826,92.6848191,2388.9221056,normal" %> frameborder="" allowfullscreen="" width="100%" height="600"></iframe>
     </div>
   </div>
 </div>
