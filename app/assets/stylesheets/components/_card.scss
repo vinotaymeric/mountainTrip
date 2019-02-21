@@ -76,6 +76,7 @@
 }
 
 .card-description h2 {
+  color: rgb(20, 20, 20);
   position: absolute;
   top: -20px;
   left: 5px;
@@ -132,6 +133,18 @@
   opacity: 1;
 }
 
+.card-button-left {
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  opacity: 1;
+}
+
 .visible-btn {
   opacity: 1;
+}
+
+#participants {
+  color: black;
+  font-weight: bolder;
 }

@@ -15,7 +15,7 @@
       <div class="banner-content">
         <h1>Mountain Trip</h1>
         <p>You will never walk alone</p>
-        <div style="position: relative; height: 135px; width: 400px;">
+        <div style="position: relative; height: 155px; width: 400px;">
           <%= form_tag itineraries_path, method: :get, class: "form-group" do %>
             <%= text_field_tag :address,
               params[:address],
@@ -24,12 +24,13 @@
               placeholder: "Adresse de départ"
             %>
             <%= select_tag :activity,
-              options_for_select(["rock_climbing", "mountain_climbing", "skitouring", "snow_ice_mixed" ],
+              options_for_select( Itinerary::ACTIVITIES_MAPPING.map {|k, v| [v, k]},
               params[:product]),
               class: "form-control",
               include_blank: "Activité"
             %>
             <%= submit_tag "Créer une sortie", class: "btn btn-primary card-button" %>
+            <%= submit_tag "Rejoindre une sortie", formaction: trips_path, class: "btn btn-primary card-button-left" %>
           <% end %>
         </div>
       </div>
