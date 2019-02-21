@@ -1,0 +1,44 @@
+.date-form {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #C2DDC0;
+    padding: 10px;
+}
+
+
+#trip_title {
+  opacity: 0.5;
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+.form-group.row.string.optional.trip_title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.form-group.row.date.required.trip_start_date {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-group.row.date.required.trip_end_date{
+   display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-group.row.mb-0 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-form-title{
+
+}
+
+
