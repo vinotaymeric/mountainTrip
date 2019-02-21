@@ -3,6 +3,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <div class="message" style="background-color: rgba(98, 148, 96, 0.3);">
+        <% if @trip.user.picture.file.nil? %>
+                  <img src="https://loremflickr.com/320/320?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+                <% else %>
+                  <img src="<%= cl_image_path @trip.user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
+          <% end %>
+
+          <div class="message-name">
+            <h3><%= @trip.user.user_name %></h3>
+            <p>Coucou</p>
+          </div>
+          <div class="message-body">
+            <p><strong>Bonjour, je suis l'organisateur de cette sortie ! Raconte-moi ta vie.</strong></p>
+          </div>
+        </div>
 
       <% @messages.each do |message| %>
         <div class="message">
