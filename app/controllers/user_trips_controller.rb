@@ -8,7 +8,7 @@ class UserTripsController < ApplicationController
 
     if @trip.user == current_user
       redirect_to trip_path(@trip)
-      flash[:alert] = "C'est toi qui a créé la sortie boloss."
+      flash[:alert] = "C'est ta propre sortie, boloss."
     else
       @request.state = "demandé"
       if @request.save!
