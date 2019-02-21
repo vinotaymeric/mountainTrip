@@ -21,12 +21,7 @@
 
       <% @messages.each do |message| %>
         <div class="message">
-        <% if @user.picture.file.nil? %>
-                  <img src="https://loremflickr.com/320/320?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
-                <% else %>
-                  <img src="<%= cl_image_path @user.picture, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
-          <% end %>
-
+        <img src= <%= message.user.avatar %> class="avatar">
           <div class="message-name">
             <h3><%= message.user.user_name %></h3>
             <p><%= message.created_at.to_s.first(9) %></p>
