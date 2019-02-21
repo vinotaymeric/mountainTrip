@@ -112,12 +112,12 @@ Trip.destroy_all
 
 User.all.each do |cur_user|
   cur_itinerary = Itinerary.all.sample
-  Trip.create!(start_date: DateTime.new(2019,3,10,8,0,0), end_date: DateTime.new(2019,3,10,19,0,0), user: cur_user, itinerary: cur_itinerary, title: "Super weekend" )
+  Trip.create!(start_date: DateTime.new(2019,3,10,8,0,0), end_date: DateTime.new(2019,3,10,19,0,0), user: cur_user, itinerary: cur_itinerary, title: "Super weekend de #{cur_itinerary.activities.first}" )
 end
 
 User.all.each do |cur_user|
   cur_itinerary = Itinerary.all.sample
-  Trip.create!(start_date: DateTime.new(2019,3,15,8,0,0), end_date: DateTime.new(2019,3,15,19,0,0), user: cur_user, itinerary: cur_itinerary, title: "Semaine au ski" )
+  Trip.create!(start_date: DateTime.new(2019,3,15,8,0,0), end_date: DateTime.new(2019,3,15,19,0,0), user: cur_user, itinerary: cur_itinerary, title: "Semaine avec les copines #{cur_itinerary.activities.first}" )
 end
 
 puts "Trip seeding completed"
