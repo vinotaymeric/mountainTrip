@@ -1,7 +1,7 @@
 class ItinerariesController < ApplicationController
-
   skip_before_action :authenticate_user!, only: :index
-  
+  before_action :init_mark_down_parser, only: :show
+
   def index
     if params[:address].present? && params[:activity].present?
       @itineraries = Itinerary.near(params[:address], 300).order("distance")
@@ -22,6 +22,11 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+  end
+
+  private
+
+  def init_mark_down_parser
     renderer = Redcarpet::Render::HTML.new(no_images: true)
     @markdown = Redcarpet::Markdown.new(renderer)
   end
