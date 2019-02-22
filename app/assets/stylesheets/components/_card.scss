@@ -1,11 +1,10 @@
 .card {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
-  margin-bottom: 15px;
+  margin: 4% 4%;
   border-radius: 2px;
   transition-duration: 1.5s;
   box-shadow:2px;
@@ -54,7 +53,7 @@ p .card-comment {
   top: 10px;
   left: 10px;
   font-size: 15px;
-  text-transform: uppercase;
+  text-transform: capitalize;;
   transition-duration: 1.5s;
   transition-timing-function: ease;
 }

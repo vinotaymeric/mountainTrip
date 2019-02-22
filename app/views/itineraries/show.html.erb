@@ -7,15 +7,28 @@
         <%= @itinerary.activities.join(", ") %>
       </div>
       <div class="card-iti-description card-iti-element-invisible">
-        <h2><%= @itinerary.title %></h2>
-        <p>Difficulté: <%= @itinerary.diffculty %></p>
-        <p>Altitude maximale: <%= @itinerary.elevation_max %>m</p>
-        <p>Dénivelé: <%= @itinerary.height_diff_up %>m</p>
-        <p>Outings: <%= @itinerary.number_of_outings %></p>
+        <ul class="list-group">
+        <li class="list-group-item trans">
+          <h2 class="text-center"><%= @itinerary.title %></h2>
+          </li>
+        <% if @itinerary.diffculty != nil %>
+          <li class="list-group-item trans">Difficulté: <%= @itinerary.diffculty %></li>
+        <% end %>
+        <% if @itinerary.elevation_max != nil %>
+          <li class="list-group-item trans">Altitude maximale: <%= @itinerary.elevation_max %>mètres</li>
+        <% end %>
 
+        <% if @itinerary.height_diff_up != nil %>
+          <li class="list-group-item trans">Dénivelé: <%= @itinerary.height_diff_up %>mètres</li>
+        <% end %>
+
+        <% if @itinerary.number_of_outings != nil %>
+          <li class="list-group-item trans">Outings: <%= @itinerary.number_of_outings %></li>
+        <% end %>
+      </ul>
       </div>
       <div>
-        <%= link_to('Créer une sortie', new_itinerary_trip_path(@itinerary), class: "btn btn-primary card-button") %>
+        <%= link_to('Créer une sortie', new_itinerary_trip_path(@itinerary), class: "btn btn-primary card-button btn-lg outline") %>
       </div>
     </div>
   </div>

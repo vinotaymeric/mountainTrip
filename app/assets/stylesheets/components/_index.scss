@@ -10,7 +10,9 @@
 @import "avatar";
 @import "map";
 @import "tabs";
-@import "dateform";
+@import "logform";
+@import "button";
+@import "list";
 
 body {
   background-color: #edf0f0;
@@ -23,6 +25,9 @@ body {
 .btn {
   background-color: rgb(98,148,96);
   border-color: rgb(98, 148, 96);
+}
+.container.itinerary {
+  margin-bottom: 60px;
 }
 
 .form-control {

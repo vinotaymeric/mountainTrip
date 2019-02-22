@@ -1,5 +1,6 @@
-<h2>Quel itinéraire voulez-vous proposer?</h2>
-
+<div class="container itinerary">
+  <h2>Quel itinéraire voulez-vous proposer?</h2>
+</div>
 
 <ul class="list-inline tabs-underlined">
   <li>
@@ -20,7 +21,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= itinerary.picture_url %>');">
           <%= link_to('', itinerary_path(itinerary), class: "card-link") %>
-          <div class="card-category card-element-invisible">Popular</div>
+          <div class="card-category card-element-invisible"><%= itinerary.activities.join(", ") %></div>
           <div class="card-description">
             <div class="card-infos">
               <h2><%=itinerary.title %></h2>

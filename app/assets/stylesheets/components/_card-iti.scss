@@ -1,11 +1,8 @@
 .card-iti {
   height: 300px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
   color: white;
   position: relative;
-  margin-bottom: 15px;
+  margin-top: 10px;
   border-radius: 2px;
   transition-duration: 1.5s;
   box-shadow:2px;
@@ -19,24 +16,36 @@
     width: 100%;
     max-width:100%;
     transition: all 1.5s;
+    background-size: cover !important;
+    background-position: center;
   };
   &:hover {
         border-radius:4px;
-
         transition-duration: 1.5s;
         transition-timing-function: ease;
         img{
           transform: scale(1.2);
+        }
+        .btn.outline {
+          transition-duration: 1.5s;
+          transition-timing-function: ease;
 
+          background-color: rgba( 100, 100, 100, 0.7);
+          &:hover {
+            transition-duration: 0.2s;
+            background-color: rgba( 45, 45, 45, 0.9);
+          }
         }
     }
 }
 
 
 .card-iti-description {
+  padding-left: 3px;
   position: absolute;
   top: 0px;
   right: 0px;
+  color: rgb(75, 75, 75);
   background-color: rgba( 230, 230, 230, 0.8);
   width: 10%;
   height:100%;
