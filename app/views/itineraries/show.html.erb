@@ -9,7 +9,9 @@
       <div class="card-iti-description card-iti-element-invisible">
         <ul class="list-group">
         <li class="list-group-item trans">
+
           <h4 class="text-center"><%= @itinerary.title %></h4>
+
           </li>
         <% if @itinerary.diffculty != nil %>
           <li class="list-group-item trans">Difficulté: <%= @itinerary.diffculty %></li>
@@ -32,7 +34,7 @@
       </div>
     </div>
   </div>
-  <div class="flex-object description trip-element">
+  <div class="flex-object description">
     <h4>Description</h4>
     <%= render partial: "./itineraries/description", locals: {itinerary: @itinerary} %>
   </div>

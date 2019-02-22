@@ -9,14 +9,13 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-
   img {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9));
     height:100%;
     width: 100%;
     max-width:100%;
     transition: all 1.5s;
-    background-size: cover !important;
+    object-fit: cover !important;
     background-position: center;
   };
   &:hover {
