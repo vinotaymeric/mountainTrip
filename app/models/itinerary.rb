@@ -1,6 +1,7 @@
 class Itinerary < ApplicationRecord
 
   include AlgoliaSearch
+
   algoliasearch do
   end
 

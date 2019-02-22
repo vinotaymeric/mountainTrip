@@ -35,14 +35,31 @@ const  addItineraryCard = (json) => {
   grid.insertAdjacentHTML('beforeend', html(json));
 };
 
-algoliaSearch.addEventListener('keyup', (event) => {
-  grid.innerHTML = "";
-  var keyword = event.currentTarget.value;
-  index.search(keyword, function(err, content) {
 
-    content.hits.forEach(element => {
-     addItineraryCard(element)
-   });
+const search = () => {
+  algoliaSearch.addEventListener('keyup', (event) => {
+    grid.innerHTML = "";
+    var keyword = event.currentTarget.value;
+    index.search(keyword, function(err, content) {
 
+      content.hits.forEach(element => {
+       addItineraryCard(element)
+     });
+
+    });
   });
-});
+}
+
+export default search;
+
+
+
+// function getUrlVars() {
+//     var vars = {};
+//     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+//         vars[key] = value;
+//     });
+//     return vars;
+// }
+
+// console.log(getUrlVars());
