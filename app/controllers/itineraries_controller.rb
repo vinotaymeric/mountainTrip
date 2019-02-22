@@ -1,6 +1,8 @@
 class ItinerariesController < ApplicationController
-  def index
 
+  skip_before_action :authenticate_user!, only: :index
+  
+  def index
     if params[:address].present? && params[:activity].present?
       @itineraries = Itinerary.near(params[:address], 300).order("distance")
       @itineraries = @itineraries.select { |itinerary| itinerary.activities.include?(params[:activity]) }
@@ -20,5 +22,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    renderer = Redcarpet::Render::HTML.new(no_images: true)
+    @markdown = Redcarpet::Markdown.new(renderer)
   end
 end

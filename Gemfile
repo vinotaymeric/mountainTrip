@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'redcarpet'
+gem 'awesome_print'
+
 #Environment variable management
 gem 'omniauth-facebook'
 gem "figaro"
@@ -12,6 +15,7 @@ gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem "algoliasearch-rails"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

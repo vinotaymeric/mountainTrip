@@ -15,11 +15,11 @@
 @import "list";
 
 body {
-  background-color: white;
+  background-color: #edf0f0;
   display:table;
   height: 100%;
     width: 100%;
-    margin: 0;
+    // margin-top: 70px;
 }
 
 .btn {
@@ -34,6 +34,28 @@ body {
   margin-bottom: 10px;
 }
 
-.description p {
+#itinerary-content {
+  h2 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-left: 4px;
+  }
   text-align: justify;
+}
+
+.trip-element {
+  background-color: #f7f9f9;
+  padding: 20px 40px;
+  margin: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 15px #989898;
+}
+
+h4 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #262959;
 }

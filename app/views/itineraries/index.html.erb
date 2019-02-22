@@ -4,12 +4,16 @@
 
 <ul class="list-inline tabs-underlined">
   <li>
+      <input id="algoliaSearch" class="form-control tab-underlined active" type="search" placeholder="Affiner ma recherche" aria-label="Search" style="border: 1px solid black; color: black; width: 200px">
+  </li>
+  <li>
     <a href="#" class="tab-underlined active" id="tab-list">Liste</a>
   </li>
   <li>
     <a href="#" class="tab-underlined" id="tab-map">Carte</a>
   </li>
 </ul>
+
 
 <div class="container" id="content-list">
   <div class="row">
@@ -22,7 +26,11 @@
             <div class="card-infos">
               <h2><%=itinerary.title %></h2>
               <%= link_to('', itinerary_path(itinerary), class: "card-link") %>
-              <p><%= itinerary.content %></p>
+              <% Itinerary::ACTIVITIES_MAPPING.map do |k, v|%>
+                <% if k == itinerary.activities.first  %>
+                  <p><%= v %></p>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
