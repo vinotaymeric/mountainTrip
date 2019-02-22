@@ -3,3 +3,12 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
+#main-frame {
+ margin-bottom: 200px;
+}

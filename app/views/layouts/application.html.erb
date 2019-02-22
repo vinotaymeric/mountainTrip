@@ -13,14 +13,16 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-    <% if action_name == "new" %>
-        <%= yield %>
-    <% else %>
-      <div class="container">
-        <%= yield %>
-      </div>
-      <%= render 'shared/footer' %>
-    <% end %>
+    <div id="main-frame">
+      <% if action_name == "new" %>
+          <%= yield %>
+      <% else %>
+          <div class="container">
+            <%= yield %>
+          </div>
+        <%= render 'shared/footer' %>
+      <% end %>
+    </div>
 
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
