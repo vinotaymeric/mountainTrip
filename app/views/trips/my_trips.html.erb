@@ -1,9 +1,11 @@
 <h2>Mes sorties</h2>
 
 <div class="container">
-
+  <div class="row">
+    <div class="col-xs-12">
   <% @my_trips.each do |trip| %>
-    <h4><%= trip.title %></h4>
+  <div class="trip">
+    <h4><%= trip.title %> du <%= trip.start_date %> au <%= trip.end_date %></h4>
     <% if trip.user_trips.empty? %>
       <p>Personne ne veut venir avec toi, gros looser.</p>
       <p>==> Partage le trip sur <a href="https://www.facebook.com/" target="blank"><i class="fab fa-facebook-f"></i></a></p>
@@ -32,6 +34,9 @@
         </div>
       <% end %>
     <% end %>
+    </div>
   <% end %>
+  </div>
+</div>
 
 </div>

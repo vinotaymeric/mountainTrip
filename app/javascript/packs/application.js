@@ -1,6 +1,6 @@
 import "bootstrap";
 
-import { InitUpdateNavbar, fixNavbar } from '../components/navbar';
+import { InitUpdateNavbar, fixNavbar, whiteLogo, greyLogo } from '../components/navbar';
 import initTabs from '../components/tabs';
 import CardsHover from '../components/cards';
 import CardsItiHover from '../components/cardsIti';
@@ -12,7 +12,12 @@ import initAutocomplete from '../plugins/init_autocomplete';
 // import InitTyped from '../components/init_typed';
 
 InitUpdateNavbar();
-if (window.location.pathname != "/" && window.location.pathname != "/trips/new") { fixNavbar() }
+if (window.location.pathname != "/" && window.location.pathname != "/trips/new") {
+  fixNavbar();
+  } else{
+    whiteLogo();
+  }
+
 initTabs(initMapbox);
 
 CardsHover();
