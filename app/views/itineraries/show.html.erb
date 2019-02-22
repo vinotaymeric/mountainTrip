@@ -21,9 +21,7 @@
   </div>
   <div class="flex-object description">
     <h4>Description</h4>
-    <div id="itinerary-content">
-      <%= @markdown.render(@itinerary.content.gsub(/\[img.*\[\/img\]/,'')).html_safe %>
-    </div>
+    <%= render "description" %>
   </div>
   <div class="flex-object">
     <h4>3D Map</h4>
