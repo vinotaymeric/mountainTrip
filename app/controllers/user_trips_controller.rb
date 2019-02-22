@@ -12,7 +12,7 @@ class UserTripsController < ApplicationController
       @request.state = "demandé"
       if @request.save!
         redirect_to trip_messages_path(@trip)
-        flash[:notice] = "Demande envoyée. Montrez que vous êtes sympa, vos seins, etc."
+        flash[:notice] = "Demande envoyée. Prenez une bière et détendez-vous."
       end
     end
   end
