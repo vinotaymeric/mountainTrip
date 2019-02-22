@@ -1,7 +1,7 @@
 class Itinerary < ApplicationRecord
   ACTIVITIES_MAPPING = {"skitouring" => "Ski de randonnée",
                         "snow_ice_mixed" => "Mixte et glace",
-                        "mountain_climbing" => "Apinisme",
+                        "mountain_climbing" => "Alpinisme",
                         "rock_climbing" => "Grande voie",
                         "ice_climbing" => "Cascade de glace"
                        }
