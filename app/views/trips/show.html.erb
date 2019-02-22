@@ -22,18 +22,36 @@
         </ul>
       </div>
       <div class="card-iti-description">
-        <h4><%= @trip.title %> </h4>
-        <p> <%= @trip.itinerary.title %></p>
-        <p>Difficulté: <%= @trip.itinerary.diffculty %></p>
-        <p>Altitude maximale: <%= @trip.itinerary.elevation_max %>m</p>
-        <p>Dénivelé: <%= @trip.itinerary.height_diff_up %>m</p>
-        <p>Outings: <%= @trip.itinerary.number_of_outings %></p>
-         <span id="participants">Participants: <%= @users.map { |user| user.user_name }.join(" ,") %></span>
+        <ul class="list-group">
+        <li class="list-group-item trans"><h4 class="text-center"><%= @trip.title %> </h4> </li>
+        <li class="list-group-item trans"> <%= @trip.itinerary.title %> </li>
+        <% if @trip.itinerary.diffculty != nil %>
+          <li class="list-group-item trans">Difficulté: <%= @trip.itinerary.diffculty %></li>
+        <% end %>
+        <% if @trip.itinerary.elevation_max != nil %>
+          <li class="list-group-item trans">Altitude maximale: <%= @trip.itinerary.elevation_max %>mètres</li>
+        <% end %>
+
+        <% if @trip.itinerary.height_diff_up != nil %>
+          <li class="list-group-item trans">Dénivelé: <%= @trip.itinerary.height_diff_up %>mètres</li>
+        <% end %>
+
+        <% if @trip.itinerary.number_of_outings != nil %>
+          <li class="list-group-item trans">Outings: <%= @trip.itinerary.number_of_outings %></li>
+        <% end %>
+
+            <% if @users.empty? %>
+            <li class="list-group-item trans"><span id="participants">Aucun participant pour l'instant.</span></li>
+          <% else %>
+            <li class="list-group-item trans"><span id="participants">Participants: <%= @users.map { |user| user.user_name }.join(" ,") %></span></li>
+        <% end %>
+        </ul>
+
       </div>
       <div>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary card-button" data-toggle="modal" data-target="#myModal">
+        <button type="button " class="btn btn-primary outline card-button" data-toggle="modal" data-target="#myModal">
           Je veux participer
         </button>
 
@@ -50,7 +68,7 @@
                   <%= f.input :default_message, placeholder: "Pourquoi voulez-vous vous joindre à cette sortie ?", label: false %>
                 </div>
                 <div class="modal-footer">
-                  <div><%= f.submit :Demander, class: "btn btn-primary" %></div>
+                  <div><%= f.submit :Demander, class: "btn btn-primary outline" %></div>
                 </div>
                 <% end %>
               </div>
