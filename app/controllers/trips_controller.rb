@@ -4,9 +4,9 @@ require 'open-uri'
 class TripsController < ApplicationController
   def index
     if params[:activity].present?
-      @trips = Trip.all.select { |trip| trip.itinerary.activities.include?(params[:activity]) }
+      @trips = Trip.all.order('trips.created_at desc').select { |trip| trip.itinerary.activities.include?(params[:activity]) }
     else
-      @trips = Trip.all
+      @trips = Trip.all.order('trips.created_at desc')
     end
   end
 
@@ -35,7 +35,9 @@ class TripsController < ApplicationController
   end
 
   def my_trips
-    @my_trips = Trip.where(user_id: current_user.id)
+    @my_trips = Trip.where(user_id: current_user.id).order('trips.created_at desc')
+    
+    #    .first
   end
 
   # def validate_user_for_trip
