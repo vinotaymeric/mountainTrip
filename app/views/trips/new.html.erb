@@ -17,8 +17,10 @@
         <%= f.input :end_date, as: :date, html5: true, label: "Date de retour:" %>
         <div class="form-group row mb-0">
           <div class="col-sm-9 offset-sm-3">
+           <div class="my-buttons">
             <%= f.button :submit, label: "Créer", class: "btn-primary outline" %>
             <%= link_to "Retour", itineraries_path, class: "btn btn-primary outline" %>
+            </div>
           </div>
         </div>
         <% end %>
