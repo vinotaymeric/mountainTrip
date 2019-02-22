@@ -1,5 +1,4 @@
 class UserTripsController < ApplicationController
-
   def create
     @request = UserTrip.new(user_trip_params)
     @request.user = current_user
@@ -16,7 +15,6 @@ class UserTripsController < ApplicationController
         flash[:notice] = "Demande envoyée. Montrez que vous êtes sympa, vos seins, etc."
       end
     end
-
   end
 
   def accept
