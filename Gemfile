@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'redcarpet'
+gem 'awesome_print'
+
 #Environment variable management
 gem 'omniauth-facebook'
 gem "figaro"
