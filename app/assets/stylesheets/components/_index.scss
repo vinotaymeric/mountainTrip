@@ -29,6 +29,11 @@ body {
   margin-bottom: 10px;
 }
 
-.description p {
+#itinerary-content {
+  h2 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-left: 4px;
+  }
   text-align: justify;
 }
