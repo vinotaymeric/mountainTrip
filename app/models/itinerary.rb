@@ -1,4 +1,9 @@
 class Itinerary < ApplicationRecord
+
+  include AlgoliaSearch
+  algoliasearch do
+  end
+
   ACTIVITIES_MAPPING = {"skitouring" => "Ski de randonnée",
                         "snow_ice_mixed" => "Mixte et glace",
                         "mountain_climbing" => "Alpinisme",
