@@ -19,9 +19,9 @@
             <div class="card-infos">
               <h2><%=itinerary.title %></h2>
               <%= link_to('', itinerary_path(itinerary), class: "card-link") %>
-              <%= Itinerary::ACTIVITIES_MAPPING.map do |k, v|%>
+              <% Itinerary::ACTIVITIES_MAPPING.map do |k, v|%>
                 <% if k == itinerary.activities.first  %>
-                    <p><%= v %></p>
+                  <p><%= v %></p>
                 <% end %>
               <% end %>
             </div>
