@@ -1,30 +1,3 @@
-import "bootstrap";
-
-import { InitUpdateNavbar, fixNavbar, whiteLogo, greyLogo } from '../components/navbar';
-import initTabs from '../components/tabs';
-import CardsHover from '../components/cards';
-import CardsItiHover from '../components/cardsIti';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import initMapbox from '../plugins/init_mapbox';
-import initAutocomplete from '../plugins/init_autocomplete';
-
-InitUpdateNavbar();
-if (window.location.pathname != "/" && window.location.pathname != "/trips/new") {
-  fixNavbar();
-  } else{
-    whiteLogo();
-  }
-
-initTabs(initMapbox);
-
-CardsHover();
-CardsItiHover();
-
-
-initAutocomplete();
-
-// A mettre dans fichier a part
-
 const algoliaSearch = document.querySelector("#algoliaSearch");
 
 var client = algoliasearch("3RYHYKB43F", "3a905383f2fa9939638d31ce42c7e063");
@@ -73,4 +46,3 @@ algoliaSearch.addEventListener('keyup', (event) => {
 
   });
 });
-

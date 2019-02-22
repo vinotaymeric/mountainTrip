@@ -2,7 +2,7 @@
   <h2>Et ça papote, et ça papote</h2>
   <div class="row">
     <div class="col-xs-12">
-      <div class="message" style="background-color: rgba(98, 148, 96, 0.3);">
+      <div class="message trip-element" style="background-color: rgba(98, 148, 96, 0.3);">
         <% if @trip.user.picture.file.nil? %>
         <img src="https://loremflickr.com/320/320?lock=1" class="avatar dropdown-toggle" id="navbar-mountain-menu" data-toggle="dropdown">
         <% else %>
@@ -19,7 +19,7 @@
       </div>
 
       <% @messages.each do |message| %>
-      <div class="message message-grey">
+      <div class="message trip-element">
         <img src= <%= message.user.avatar %> class="avatar">
         <div class="message-name">
           <h3><%= message.user.user_name %></h3>
@@ -34,7 +34,7 @@
       <h4>Répondre au dernier message</h4>
 
       <%= simple_form_for [@trip, @message] do |f| %>
-      <%= f.input :content %>
+      <%= f.input :content, label: false %>
       <%= f.submit "Répondre", class: "btn btn-primary" %>
       <% end %>
 
