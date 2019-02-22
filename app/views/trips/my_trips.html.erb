@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-xs-12">
   <% @my_trips.each do |trip| %>
-  <div class="trip">
+  <div class="trip trip-element">
     <h4><%= trip.title %> du <%= trip.start_date %> au <%= trip.end_date %></h4>
     <% if trip.user_trips.empty? %>
       <p>Personne ne veut venir avec toi, gros looser.</p>
