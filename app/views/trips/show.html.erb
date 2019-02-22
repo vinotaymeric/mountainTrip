@@ -67,10 +67,15 @@
         <%= itinerary.content %>
       </p>
     </div>
-    <div class="flex-object">
+
+
+    <!-- Add for demo -->
+<!--     <div class="flex-object">
       <h4>Météo</h4>
-      <img src=<%= "http://my.meteoblue.com/visimage/meteogram_web?apikey=41f2dd49fb6a&lat=#{itinerary.coord_lat}&lon=#{itinerary.coord_long}&asl=#{itinerary.elevation_max}" %> alt="Météo">
-    </div>
+      <img src=<%#= "http://my.meteoblue.com/visimage/meteogram_web?apikey=41f2dd49fb6a&lat=#{itinerary.coord_lat}&lon=#{itinerary.coord_long}&asl=#{itinerary.elevation_max}" %> alt="Météo">
+    </div> -->
+
+
     <div class="flex-object">
       <h4>3D Map</h4>
       <iframe src=<%= "https://fatmap.com/@#{itinerary.coord_lat},#{itinerary.coord_long},#{itinerary.elevation_max},-35.9049826,92.6848191,2388.9221056,normal" %> frameborder="" allowfullscreen="" width="100%" height="600"></iframe>
