@@ -2,6 +2,8 @@ require 'nokogiri'
 require 'open-uri'
 
 class TripsController < ApplicationController
+  before_action :init_mark_down_parser, only: :show
+
   def index
     if params[:activity].present?
       @trips = Trip.all.order('trips.created_at desc').select { |trip| trip.itinerary.activities.include?(params[:activity]) }
@@ -36,7 +38,7 @@ class TripsController < ApplicationController
 
   def my_trips
     @my_trips = Trip.where(user_id: current_user.id).order('trips.created_at desc')
-    
+
     #    .first
   end
 
@@ -54,5 +56,10 @@ class TripsController < ApplicationController
 
   def sign_up_params
     params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
+  end
+
+  def init_mark_down_parser
+    renderer = Redcarpet::Render::HTML.new(no_images: true)
+    @markdown = Redcarpet::Markdown.new(renderer)
   end
 end

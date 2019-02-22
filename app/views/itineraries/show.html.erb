@@ -34,7 +34,7 @@
   </div>
   <div class="flex-object description trip-element">
     <h4>Description</h4>
-    <%= render "description" %>
+    <%= render partial: "./itineraries/description", locals: {itinerary: @itinerary} %>
   </div>
   <div class="flex-object trip-element">
     <h4>3D Map</h4>
