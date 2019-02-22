@@ -30,6 +30,20 @@ const new_html = `
   return new_html;
     };
 
+// function getUrlVars() {
+//     var vars = {};
+//     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+//         vars[key] = value;
+//     });
+//     var activity = vars.activity;
+//     var clean_activity;
+//     if (activity === "skitouring" ) { clean_activity = "ski"};
+//     if (activity === "snow_ice_mixed" ) { clean_activity = "mixte"};
+//     if (activity === "mountain_climbing" ) { clean_activity = "alpinisme"};
+//     if (activity === "rock_climbing" ) { clean_activity = "escalade"};
+//     if (activity === "ice_climbing" ) { clean_activity = "cascade"};
+//     return clean_activity;
+// }
 
 const  addItineraryCard = (json) => {
   grid.insertAdjacentHTML('beforeend', html(json));
@@ -54,12 +68,3 @@ export default search;
 
 
 
-// function getUrlVars() {
-//     var vars = {};
-//     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-//         vars[key] = value;
-//     });
-//     return vars;
-// }
-
-// console.log(getUrlVars());
