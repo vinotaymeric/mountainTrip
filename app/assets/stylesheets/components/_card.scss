@@ -19,6 +19,8 @@
 
 
 
+
+
 .card-user-avatar {
   position: absolute;
   right: 48px;
@@ -41,6 +43,10 @@
   &:hover {
     text-decoration: none;
 }
+}
+
+p .card-comment {
+  font-size: 12px;
 }
 
 .card-category {
@@ -68,11 +74,16 @@
   height: 100%;
   position: relative;
   h2, p {
+    font-size: 12px;
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
    max-width: 95%;
  }
+}
+
+.card-description .card-infos p {
+  font-size: 12px;
 }
 
 .card-description h2 {
@@ -116,6 +127,7 @@
 }
 
 
+
 .card-element-invisible {
   opacity: 0;
   transition-duration: 1.5s;
@@ -123,14 +135,15 @@
 }
 
 .card-element-up {
-  height: 50%;
+  height: 45%;
 }
 
 .card-button {
   position: absolute;
   bottom: 7px;
-  right: 7px;
+  left: 7px;
   opacity: 1;
+  width:30%!important;
 }
 
 .card-button-left {

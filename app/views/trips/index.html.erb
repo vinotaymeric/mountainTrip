@@ -1,16 +1,16 @@
 <div class="container">
-  <h2>Sorties</h2>
+  <h2>Les sorties prévues:</h2>
 
   <div class="row">
     <% @trips.each do |trip|  %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= trip.itinerary.picture_url %>');">
         <%= link_to " ", trip_path(trip), class: "card-link" %>
-        <div class="card-category card-element-invisible"><%= trip.start_date %></div>
+        <div class="card-category card-element-invisible"><%= trip.itinerary.activities.join(", ") %></div>
         <div class="card-description">
           <div class="card-infos">
             <h2><%= trip.title %></h2>
-            <p class="card-comment card-element-invisible"><%= trip.itinerary.content %></p>
+            <p class="card-comment card-element-invisible">organisé par <%= trip.user.user_name %> du <%= trip.start_date %> au <%= trip.end_date %></p>
           </div>
         </div>
       </div>

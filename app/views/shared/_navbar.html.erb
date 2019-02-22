@@ -1,15 +1,11 @@
 <div class="navbar-mountain navbar-fixed-top">
 
-  <a href="/" class="navbar-mountain-logo">
-    <%= image_tag('logo-mountain.png') %>
-  </a>
+
   <div class="navbar-mountain-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
     <!-- Links when logged in -->
     <%= link_to ("<i class='fas fa-plus-circle'></i>
     Proposer une nouvelle sortie").html_safe, itineraries_path, class: "navbar-mountain-item navbar-mountain-link" %>
-    <!--<%= link_to "Mes Sorties", "#", class: "navbar-mountain-item navbar-mountain-link" %>-->
-    <!--liens actifs pour mes sorties et proposer sortie à intégerer au design de la nav bar-->
     <%=  link_to "Mes sorties", my_trips_path, class: "navbar-mountain-item navbar-mountain-link" %>
     <div class="navbar-mountain-item">
       <div class="dropdown">
